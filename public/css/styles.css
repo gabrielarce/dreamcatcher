@@ -136,23 +136,55 @@ table {
     border-spacing: 0;
 }
 
-.landing-page {
-    display: flex;
-    height: 100vh;
-    align-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
+
+/* Desktop View Styles */
+
+html,
+body {
+    background: url("https://images.unsplash.com/photo-1536893827774-411e1dc7c902?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2864&q=80") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.menu-buttons {
+nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5%;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul li {
+    padding: 10px 20px;
 }
 
 
-/* Dream Form Style */
+/* #landing {
+    background-image: url("https://images.unsplash.com/photo-1536893827774-411e1dc7c902?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2864&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+} */
 
 
-/* 
-/* Style the form */
+/* Mobile View Styles */
+
+
+/* Small screen devices (600px and above) */
+
+@media only screen and (max-width: 600px) {
+    nav {
+        justify-content: center;
+    }
+    nav ul {
+        display: none;
+    }
+}
