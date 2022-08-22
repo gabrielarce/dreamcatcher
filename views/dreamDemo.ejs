@@ -11,16 +11,28 @@
     <title>Submit Your Dream</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <header>
+        <nav>
+            <h1>
+                <a href="/">DreamCatcher</a>
+            </h1>
+            <ul>
+                <li><a href="/dreamDemo">Try it Out</a></li>
+                <li><a href="">Sign Up</a></li>
+                <li><a href="">Login</a></li>
+            </ul>
+        </nav>
+    </header>
     <section>
         <form action="/api/dreams" method="POST" id="dreamForm" name="form">
             <!-- Dream Rating -->
             <label for="radio">How would you rate your dream?</label>
             <div id="radio" class="radio-toolbar">
-                <input type="radio" id="radioAmazing" name="dreamRating" value="amazing">
+                <input type="radio" id="radioAmazing" name="dreamRating" value="amazing" required/>
                 <label for="radioAmazing">Amazing Dream</label>
 
                 <input type="radio" id="radioNice" name="dreamRating" value="nice">
@@ -41,7 +53,7 @@
 
             <!-- Dream Description -->
             <label for="story">Describe your dream...</label>
-            <textarea id="story" name="story" rows="5" cols="33" required>I dreamt that </textarea>
+            <textarea id="story" name="story" rows="5" cols="33" min="3" required> </textarea>
 
             <!-- Dream Title -->
             <label for="title">Does this dream have a title?</label>
