@@ -130,17 +130,3 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
-
-/* ------------------- */
-
-form {
-    border: 2px red solid;
-}
-
-label+textarea,
-button,
-label+#lucid,
-label+#date {
-    display: block;
-}
