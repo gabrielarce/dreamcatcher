@@ -17,26 +17,31 @@
 
 <body>
     <div class="navbar-fixed">
-        <nav class="nav-wrapper purple darken-1">
-            <div class="container">
+        <nav class="nav-wrapper">
+            <div class="">
                 <a href="/" class="brand-logo">DreamCatcher</a>
                 <a href="#" class="sidenav-trigger" data-target="mobile-links">
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="right hide-on-med-and-down">
-                    <li class="button deep-purple darken-1"><a href="/api/dreams/dreamForm">Demo Form</a></li>
-                    <li class="button blue darken-1"><a href="/api/dreams">Dashboard</a></li>
-                    <li class="button indigo darken-1"><a href="/auth/google">Log in</a></li>
-                    <li class="button orange darken-1"><a href="">Sign Up</a></li>
-
+                    <% if(!user){%>
+                        <li class="button indigo darken-1"><a href="/auth/google">Log in with Google</a></li>
+                        <%  }else{ %>
+                            <li class="">Welcome back,
+                                <%= user.firstName %>
+                            </li>
+                            <li class="purple">
+                                <a href="/api/dreams">Dashboard</a></li>
+                            <li class=""><a href="/auth/logout">Logout</a></li>
+                            <%  } %>
                 </ul>
             </div>
         </nav>
     </div>
 
     <ul class="sidenav" id="mobile-links">
-        <li><a href="/api/dreams/dreamForm">Demo Form</a></li>
-        <li><a href="/api/dreams">Dashboard</a></li>
-        <li><a href="/auth/google">Login</a></li>
-        <li><a href="">Sign Up</a></li>
+        <li><a href="/api/dreams/dreamForm ">Demo Form</a></li>
+        <li><a href="/api/dreams ">Dashboard</a></li>
+        <li><a href="/auth/google ">Login</a></li>
+        <li><a href=" ">Sign Up</a></li>
     </ul>

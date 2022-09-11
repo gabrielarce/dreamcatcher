@@ -164,23 +164,23 @@ $('#save-note-btn').on('click', function(e) {
 })
 
 
-notesList.on('click', function(e) {
-    e.preventDefault();
-    var target = $(e.target);
+// notesList.on('click', function(e) {
+//     e.preventDefault();
+//     var target = $(e.target);
 
-    // Listen to the selected note.
-    if (target.hasClass('listen-note')) {
-        var content = target.closest('.note').find('.content').text();
-        readOutLoud(content);
-    }
+//     // Listen to the selected note.
+//     if (target.hasClass('listen-note')) {
+//         var content = target.closest('.note').find('.content').text();
+//         readOutLoud(content);
+//     }
 
-    // Delete note.
-    if (target.hasClass('delete-note')) {
-        var dateTime = target.siblings('.date').text();
-        deleteNote(dateTime);
-        target.closest('.note').remove();
-    }
-});
+//     // Delete note.
+//     if (target.hasClass('delete-note')) {
+//         var dateTime = target.siblings('.date').text();
+//         deleteNote(dateTime);
+//         target.closest('.note').remove();
+//     }
+// });
 
 
 
@@ -261,6 +261,7 @@ $('#addVoiceNote').on('click', function(e) {
 });
 
 $('#discardVoiceNote').on('click', function(e) {
-    $('#note-textarea').val("")
+    $('#note-textarea').val("");
+    noteContent = "";
     $('#story').val("")
 });

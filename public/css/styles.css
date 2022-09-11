@@ -1,3 +1,28 @@
-.input-single #note-textarea {
+nav {
+    background-color: rgb(38 13 44);
+}
+
+.brand-logo {
+    margin-left: 5%;
+}
+
+#note-textarea {
     height: 240px;
+    color: #039be5
+}
+
+.dreamform {
+    padding-top: 5%;
+}
+
+.form-back {
+    font-size: 3rem;
+}
+
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
 }

@@ -1,6 +1,7 @@
 <%- include("partials/header.ejs") %>
     <!-- Dream Form -->
-    <div class="container">
+    <div class="dreamform container">
+        <a href="/api/dreams" class="form-back"><i class="fa-solid fa-arrow-left"></i> </a>
         <div class="row section">
             <form class="col s12" action="/api/dreams/add" method="POST" id="dreamForm" name="form">
                 <h3 class="center-align">Record a New Dream</h2>
@@ -66,8 +67,8 @@
 
 
                             <div class="app container">
-                                <div class="input-single">
-                                    <textarea id="note-textarea" class="materialize-textarea" placeholder="Create a new note by using voice recognition." rows="6"></textarea>
+                                <div class="">
+                                    <textarea id="note-textarea" class="" placeholder="Create a new note by using voice recognition." rows="20"></textarea>
                                 </div>
                                 <a href="#!" id="start-record-btn" title="Start Recording">Start Mic <i class="fa-solid fa-microphone"></i></a>
                                 <a href="#!" id="pause-record-btn" title="Pause Recording">Pause Mic <i class="fa-solid fa-pause"></i></a>
