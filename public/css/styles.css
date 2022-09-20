@@ -1,9 +1,9 @@
-nav {
-    background-color: rgb(38 13 44);
+::-webkit-scrollbar {
+    display: none;
 }
 
-.brand-logo {
-    margin-left: 5%;
+nav {
+    background-color: rgb(38 13 44);
 }
 
 #note-textarea {
@@ -15,14 +15,36 @@ nav {
     padding-top: 5%;
 }
 
-.form-back {
+.back-button {
     font-size: 3rem;
 }
 
 video {
     object-fit: cover;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
+}
+
+.dreams-bg {
+    background-image: url("/images/space2.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    padding: 5% 0;
+}
+
+.dreamform {
+    background-color: rgba(30, 10, 35, 0.912);
+    padding-top: 5%;
+    border-radius: 10px;
+}
+
+.page-footer {
+    background-color: rgba(23, 20, 24, 0.912);
+}
+
+.fulldream {
+    padding: 5% 0;
 }

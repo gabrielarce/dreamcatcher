@@ -13,7 +13,9 @@ router.get('/fullDream/:id', ensureAuth, dreamsController.getFullDream)
 
 router.post('/add', ensureAuth, dreamsController.postDream)
 
-// router.put('/dreams', dreamsController.editDreams)
+router.get('/edit/:id', dreamsController.getEdit)
+
+router.put('/edit/:id', dreamsController.editDream)
 
 router.delete('/delete', ensureAuth, dreamsController.deleteDream)
 

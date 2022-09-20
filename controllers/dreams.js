@@ -43,5 +43,59 @@ module.exports = {
         } catch (err) {
             console.log(err)
         }
-    }
+    },
+    getEdit: async(req, res) => {
+        try {
+            const dream = await Dream.findOne({
+                _id: req.params.id,
+            }).lean()
+
+            // if (!story) {
+            //     return res.render('error/404')
+            // }
+
+            // if (story.user != req.user.id) {
+            //     res.redirect('/stories')
+            // } else {
+            //     res.render('stories/edit', {
+            //         story,
+            //     })
+            // }
+            res.render('dreamEdit', {
+                dream,
+            })
+
+        } catch (err) {
+            console.error(err)
+                // return res.render('error/500')
+        }
+    },
+    editDream: async(req, res) => {
+        try {
+            let dream = await Dream.findOne({
+                _id: req.params.id,
+            }).lean()
+
+            // if (!story) {
+            //     return res.render('error/404')
+            // }
+
+            // if (story.user != req.user.id) {
+            //     res.redirect('/stories')
+            // } else {
+            //     res.render('stories/edit', {
+            //         story,
+            //     })
+            // }
+            dream = await Dream.findOneAndUpdate({ _id: req.params.id }, req.body, {
+                new: true,
+                runValidators: true,
+            })
+            res.redirect("/")
+
+        } catch (err) {
+            console.error(err)
+                // return res.render('error/500')
+        }
+    },
 }

@@ -10,6 +10,10 @@ $(document).ready(function() {
     $('.modal').modal();
 });
 
+CKEDITOR.replace("story", {
+    plugins: "wysiwygarea, toolbar, basicstyles"
+})
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -48,6 +52,33 @@ async function deleteDream() {
         console.log(err)
     }
 }
+
+//Edit Dream
+const update = document.querySelector('#update').addEventListener('click', updateDream)
+
+// Array.from(modal).forEach((element) => {
+//     element.addEventListener('click', deleteDream)
+// })
+
+async function updateDream() {
+    // const dreamId = this.parentNode.parentNode.parentNode.dataset.id
+    const dreamId = this.dataset.id
+    console.log(this.dataset.id)
+    try {
+        const response = await fetch('/api/dreams/delete', {
+            method: 'delete',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({
+                'dreamIdFromJSFile': dreamId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 
 // Voice to text 
 try {
@@ -162,26 +193,6 @@ $('#save-note-btn').on('click', function(e) {
     }
 
 })
-
-
-// notesList.on('click', function(e) {
-//     e.preventDefault();
-//     var target = $(e.target);
-
-//     // Listen to the selected note.
-//     if (target.hasClass('listen-note')) {
-//         var content = target.closest('.note').find('.content').text();
-//         readOutLoud(content);
-//     }
-
-//     // Delete note.
-//     if (target.hasClass('delete-note')) {
-//         var dateTime = target.siblings('.date').text();
-//         deleteNote(dateTime);
-//         target.closest('.note').remove();
-//     }
-// });
-
 
 
 /*-----------------------------

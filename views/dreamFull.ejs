@@ -1,5 +1,5 @@
 <%- include("partials/header.ejs") %>
-    <div class="container">
+    <div class="container fulldream">
         <h5>
             <%= dream.date %>
         </h5>
@@ -17,7 +17,7 @@
                         <!-- Edit and Delete Buttons with Modal-Confirmation -->
                         <div class="container">
                             <button class="btn red right waves-effect "><a class="modal-trigger" href="#modal1">Delete</a></button>
-                            <button class="btn yellow right">Edit</button>
+                            <button class="btn yellow right"><a href="/api/dreams/edit/<%= dream._id %>">Edit</a></button>
 
                             <!-- Modal Structure -->
                             <div id="modal1" class="modal modal-fixed-footer">
@@ -32,4 +32,5 @@
                             </div>
                         </div>
                 </div>
-                <%- include("partials/footer.ejs") %>
+    </div>
+    <%- include("partials/footer.ejs") %>

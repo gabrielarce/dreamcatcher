@@ -1,41 +1,42 @@
 <%- include("partials/header.ejs") %>
-
-    <div class="container">
-        <h3>Dreams</h3>
-        <% if(dreams.length < 1){ %>
-            <p>You have not entered any dreams.</p>
-            <% } else{ %>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Title</th>
-                            <th>Mood</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <% for(var i = 0; i < dreams.length; i++) { %>
+    <div class="dreams-bg">
+        <div class="container dreamform">
+            <h3>Dreams</h3>
+            <% if(dreams.length < 1){ %>
+                <p>You have not entered any dreams.</p>
+                <% } else{ %>
+                    <table>
+                        <thead>
                             <tr>
-                                <td>
-                                    <%= dreams[i].date%>
-                                </td>
-                                <td>
-                                    <a href="/api/dreams/fullDream/<%= dreams[i]._id %>">
-                                        <%= dreams[i].title%>
-                                    </a>
-                                </td>
-                                <td>
-                                    <%= dreams[i].rating%>
-                                </td>
+                                <th>Date</th>
+                                <th>Title</th>
+                                <th>Mood</th>
                             </tr>
-                            <% }}%>
-                    </tbody>
-                </table>
-    </div>
-    <div class="fixed-action-btn">
-        <a href="/api/dreams/dreamForm" class="btn-floating btn-large red">
-            <i class="large material-icons">add</i>
-        </a>
+                        </thead>
+
+                        <tbody>
+                            <% for(var i = 0; i < dreams.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= dreams[i].date%>
+                                    </td>
+                                    <td>
+                                        <a href="/api/dreams/fullDream/<%= dreams[i]._id %>">
+                                            <%= dreams[i].title%>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <%= dreams[i].rating%>
+                                    </td>
+                                </tr>
+                                <% }}%>
+                        </tbody>
+                    </table>
+        </div>
+        <div class="fixed-action-btn">
+            <a href="/api/dreams/dreamForm" class="btn-floating btn-large red">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
     </div>
     <%- include("partials/footer.ejs") %>
