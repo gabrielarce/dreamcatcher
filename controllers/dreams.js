@@ -5,12 +5,10 @@ const Dream = require('../models/Dream')
 module.exports = {
     getDreams: async(request, response) => {
         const dreams = await Dream.find({})
-        console.log(dreams)
         response.render('demoDashboard', { dreams })
     },
     getFullDream: async(request, response) => {
         const dream = await Dream.findById(request.params.id)
-        console.log(dream)
         response.render('dreamFull', { dream })
     },
     postDream: async(request, response) => {
@@ -34,7 +32,6 @@ module.exports = {
             // response.redirect('/api/dreams/dreamForm')
     },
     deleteDream: async(request, response) => {
-        console.log(request.body.dreamIdFromJSFile)
         try {
             await Dream.findOneAndDelete({ _id: request.body.dreamIdFromJSFile })
             console.log('Deleted Dream')
@@ -72,9 +69,9 @@ module.exports = {
     },
     editDream: async(req, res) => {
         try {
-            let dream = await Dream.findOne({
-                _id: req.params.id,
-            }).lean()
+            // let dream = await Dream.findOne({
+            //     _id: req.params.id,
+            // }).lean()
 
             // if (!story) {
             //     return res.render('error/404')
@@ -87,11 +84,18 @@ module.exports = {
             //         story,
             //     })
             // }
-            dream = await Dream.findOneAndUpdate({ _id: req.params.id }, req.body, {
+            await Dream.findOneAndUpdate({ _id: req.params.id }, {
+                rating: req.body.rating,
+                lucid: req.body.lucid,
+                story: req.body.story,
+                title: req.body.title,
+                date: req.body.date,
+            }, {
                 new: true,
                 runValidators: true,
             })
-            res.redirect("/")
+
+            res.redirect(`/api/dreams/fullDream/${req.params.id}`)
 
         } catch (err) {
             console.error(err)

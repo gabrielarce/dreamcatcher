@@ -5,38 +5,36 @@
             <% if(dreams.length < 1){ %>
                 <p>You have not entered any dreams.</p>
                 <% } else{ %>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Title</th>
-                                <th>Mood</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <% for(var i = 0; i < dreams.length; i++) { %>
-                                <tr>
-                                    <td>
-                                        <%= dreams[i].date%>
-                                    </td>
-                                    <td>
-                                        <a href="/api/dreams/fullDream/<%= dreams[i]._id %>">
-                                            <%= dreams[i].title%>
+                    <div class="row">
+                        <% for(var i = 0; i < dreams.length; i++) { %>
+                            <div class="col s12 l4">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="/images/swirl.jpg">
+                                        <span class="card-title"><%= dreams[i].date %></span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>
+                                            <%= dreams[i].story.substring(0,34) %> ...
+                                        </p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="/api/dreams/fullDream/<%=dreams[i]._id%>">
+                                            <%= dreams[i].title %>
                                         </a>
-                                    </td>
-                                    <td>
-                                        <%= dreams[i].rating%>
-                                    </td>
-                                </tr>
-                                <% }}%>
-                        </tbody>
-                    </table>
-        </div>
-        <div class="fixed-action-btn">
-            <a href="/api/dreams/dreamForm" class="btn-floating btn-large red">
-                <i class="large material-icons">add</i>
-            </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }}%>
+                    </div>
+
+
+
+                    <div class="fixed-action-btn">
+                        <a href="/api/dreams/dreamForm" class="btn-floating btn-large red">
+                            <i class="large material-icons">add</i>
+                        </a>
+                    </div>
         </div>
     </div>
     <%- include("partials/footer.ejs") %>

@@ -2,13 +2,14 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 9000;
 const path = require("path");
-// const methodOverride = require('method-override')
+const methodOverride = require('method-override')
 const passport = require('passport');
 const session = require('express-session');
 const connectDB = require('./config/database');
 const dreamRoutes = require('./routes/dreams');
 const authRoutes = require('./routes/auth');
-const MongoStore = require('connect-mongo')
+const MongoStore = require('connect-mongo');
+const { db } = require('./models/Dream');
 require("dotenv").config();
 
 // Passport config
@@ -29,11 +30,12 @@ app.use(
         resave: false,
         saveUninitialized: false,
         //!Change: MongoStore syntax has changed
-        store: MongoStore.create({
-            mongoUrl: process.env.DB_STRING
-        })
+        store: MongoStore.create({ mongoUrl: process.env.DB_STRING })
     })
 )
+
+//Use forms for put / delete
+app.use(methodOverride("_method"));
 
 
 // PASSPORT MIDDLEWARE
