@@ -10,11 +10,6 @@ $(document).ready(function() {
     $('.modal').modal();
 });
 
-CKEDITOR.replace("story", {
-    plugins: "wysiwygarea, toolbar, basicstyles"
-})
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.fixed-action-btn');
@@ -26,32 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Slider.init(elems, options);
 });
 
-
-// Modal Delete
-const modal = document.querySelectorAll('.modal-delete')
-
-Array.from(modal).forEach((element) => {
-    element.addEventListener('click', deleteDream)
-})
-
-async function deleteDream() {
-    // const dreamId = this.parentNode.parentNode.parentNode.dataset.id
-    const dreamId = this.dataset.id
-    console.log(this.dataset.id)
-    try {
-        const response = await fetch('/api/dreams/delete', {
-            method: 'delete',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({
-                'dreamIdFromJSFile': dreamId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-    } catch (err) {
-        console.log(err)
-    }
-}
 
 //Edit Dream
 const update = document.querySelector('#update').addEventListener('click', updateDream)

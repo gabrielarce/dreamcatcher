@@ -1,42 +1,56 @@
-// Where did this come from?? Don't remember, but leaving it untill i find out
-// const { ObjectId } = require('mongodb')
+const cloudinary = require("../middleware/cloudinary");
 const Dream = require('../models/Dream')
 
 module.exports = {
-    getDreams: async(request, response) => {
-        const dreams = await Dream.find({})
-        response.render('demoDashboard', { dreams })
+    getDreams: async(req, res) => {
+        const dreams = await Dream.find({ user: req.user.id }).lean().sort({ date: -1 })
+        res.render('dashboard', { dreams })
     },
-    getFullDream: async(request, response) => {
-        const dream = await Dream.findById(request.params.id)
-        response.render('dreamFull', { dream })
+    getFullDream: async(req, res) => {
+        const dream = await Dream.findById(req.params.id)
+        res.render('dreamFull', { dream })
     },
-    postDream: async(request, response) => {
+    postDream: async(req, res) => {
         try {
-            const dream = new Dream({
-                rating: request.body.rating,
-                lucid: request.body.lucid,
-                story: request.body.story,
-                title: request.body.title || "untitled",
-                date: request.body.date
-            })
-            await Dream.create(dream)
-            console.log('Dream has been added!')
-            response.redirect('/api/dreams/')
+            if (!req.file) {
+                await Dream.create({
+                    rating: req.body.rating,
+                    lucid: req.body.lucid,
+                    story: req.body.story,
+                    title: req.body.title || "untitled",
+                    date: req.body.date,
+                    image: "https://res.cloudinary.com/dd55v5j4d/image/upload/v1663913154/cld-sample-2.jpg",
+                    user: req.user.id,
+                })
+            } else {
+                // Upload image to cloudinary
+                const result = await cloudinary.uploader.upload(req.file.path);
+
+                await Dream.create({
+                    rating: req.body.rating,
+                    lucid: req.body.lucid,
+                    story: req.body.story,
+                    title: req.body.title || "untitled",
+                    date: req.body.date,
+                    image: result.secure_url,
+                    cloudinaryId: result.public_id,
+                    user: req.user.id,
+                })
+            }
+            console.log('Dream has been added to the dashboard!')
+            res.redirect('/api/dreams/')
         } catch (err) {
             console.log(err)
         }
     },
-    getDreamForm: async(request, response) => {
-        response.render('dreamForm')
-            // response.redirect('/api/dreams/dreamForm')
+    getDreamForm: async(req, res) => {
+        res.render('dreamForm')
     },
-    deleteDream: async(request, response) => {
+    deleteDream: async(req, res) => {
         try {
-            await Dream.findOneAndDelete({ _id: request.body.dreamIdFromJSFile })
+            await Dream.findOneAndDelete({ _id: req.params.id })
             console.log('Deleted Dream')
-                // response.json('Deleted It')
-            response.redirect('/api/dreams/')
+            res.redirect('/api/dreams/')
         } catch (err) {
             console.log(err)
         }
@@ -69,21 +83,6 @@ module.exports = {
     },
     editDream: async(req, res) => {
         try {
-            // let dream = await Dream.findOne({
-            //     _id: req.params.id,
-            // }).lean()
-
-            // if (!story) {
-            //     return res.render('error/404')
-            // }
-
-            // if (story.user != req.user.id) {
-            //     res.redirect('/stories')
-            // } else {
-            //     res.render('stories/edit', {
-            //         story,
-            //     })
-            // }
             await Dream.findOneAndUpdate({ _id: req.params.id }, {
                 rating: req.body.rating,
                 lucid: req.body.lucid,

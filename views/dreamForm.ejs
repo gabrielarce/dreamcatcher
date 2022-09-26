@@ -3,7 +3,7 @@
     <div class="dreamform container">
         <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i> back </a>
         <div class="row section">
-            <form class="col s12" action="/api/dreams/add" method="POST" id="dreamForm" name="form">
+            <form class="col s12" enctype="multipart/form-data" action="/api/dreams/add" method="POST" id="dreamForm" name="form">
                 <h3 class="center-align">Record a New Dream</h2>
                     <!-- Dream Rating -->
                     <div class="row">
@@ -64,8 +64,6 @@
                                 <h4>Voice to Text</h4>
                                 <!-- <p>A bunch of text</p> -->
                             </div>
-
-
                             <div class="app container">
                                 <div class="">
                                     <textarea id="note-textarea" class="" placeholder="Create a new note by using voice recognition." rows="20"></textarea>
@@ -82,6 +80,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- Dream Title -->
                     <label for="title">Dream Title</label>
                     <div class="input-field row">
@@ -94,13 +93,17 @@
                     <div class="input-field row validate">
                         <i class="material-icons prefix">today</i>
                         <input type="text" class="datepicker validate" name="date" id="date" required="true" aria-required="true">
-
+                    </div>
+                    <!-- Image Uploader -->
+                    <label for="imageUpload" class="form-label">Would you like to upload an image for this dream?</label>
+                    <div class="input-field">
+                        <input type="file" class="form-control" id="imageUpload" name="file">
                     </div>
                     <!-- Submit Button -->
                     <button class="btn waves-effect waves-light waves-green input-field  col" type="submit">Submit
                     <i class="material-icons right">cloud_upload</i>
                   </button>
-
             </form>
         </div>
-        <%- include("partials/footer.ejs") %>
+    </div>
+    <%- include("partials/footer.ejs") %>

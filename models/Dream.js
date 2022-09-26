@@ -23,17 +23,25 @@ const DreamSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    image: {
+        type: String,
+        require: true,
+    },
+    cloudinaryId: {
+        type: String,
+        require: true,
+    },
     // status: {
     //     type: String,
     //     default: 'public',
     //     enum: ['public', 'private'],
     // },
-    // user: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     //!Change: this field should be required because the app will break if the user is not present.
-    //     required: true,
-    // },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        //!Change: this field should be required because the app will break if the user is not present.
+        required: true,
+    },
     createdAt: {
         type: Date,
         default: Date.now,

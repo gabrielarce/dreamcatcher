@@ -11,10 +11,6 @@ nav {
     color: #039be5
 }
 
-.dreamform {
-    padding-top: 5%;
-}
-
 .back-button {
     font-size: 3rem;
 }
@@ -47,4 +43,15 @@ video {
 
 .fulldream {
     padding: 5% 0;
+}
+
+.dreamform .heading {
+    padding: 0 .75rem;
+    color: whitesmoke;
+    margin: 1rem 0;
+}
+
+.heading p {
+    font-size: 2rem;
+    margin: 0;
 }

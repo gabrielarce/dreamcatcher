@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+    <div class="dreams-bg">
+        <div class="container dreamform">
+            <div class="heading">
+                <h3>All Your Dreams are Here with You</h3>
+            </div>
+            <% if(dreams.length < 1){ %>
+                <p>You have not entered any dreams.</p>
+                <% } else{ %>
+                    <div class="row">
+                        <% for(var i = 0; i < dreams.length; i++) { %>
+                            <div class="col s12 l4">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="<%= dreams[i].image %>">
+                                        <span class="card-title"><%= dreams[i].date %></span>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>
+                                            <%= dreams[i].story.substring(0,34) %> ...
+                                        </p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="/api/dreams/fullDream/<%=dreams[i]._id%>">
+                                            <%= dreams[i].title %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }}%>
+                                <div class="fixed-action-btn">
+                                    <a href="/api/dreams/dreamForm" class="btn-floating btn-large pink">
+                                        <i class="large material-icons">add</i>
+                                    </a>
+                                </div>
+                    </div>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

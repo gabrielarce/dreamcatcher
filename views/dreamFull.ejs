@@ -27,7 +27,9 @@
                                 </div>
                                 <div class="modal-footer">
                                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                                    <a href="#" class="modal-delete modal-close waves-effect waves-green btn-flat" data-id="<%= dream._id%>">Delete</a>
+                                    <form class="right" method="POST" action="/api/dreams/delete/<%= dream._id %>?_method=DELETE">
+                                        <button class="modal-close waves-effect waves-green btn-flat">Delete</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
