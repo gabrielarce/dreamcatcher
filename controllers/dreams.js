@@ -17,7 +17,7 @@ module.exports = {
                     rating: req.body.rating,
                     lucid: req.body.lucid,
                     story: req.body.story,
-                    title: req.body.title || "untitled",
+                    title: req.body.title || "untitled dream",
                     date: req.body.date,
                     image: "https://res.cloudinary.com/dd55v5j4d/image/upload/v1663913154/cld-sample-2.jpg",
                     user: req.user.id,

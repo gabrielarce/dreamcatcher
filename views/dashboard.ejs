@@ -10,14 +10,14 @@
                     <div class="row">
                         <% for(var i = 0; i < dreams.length; i++) { %>
                             <div class="col s12 l4">
-                                <div class="card">
-                                    <div class="card-image">
+                                <div class="card small">
+                                    <div class="card-image small">
                                         <img src="<%= dreams[i].image %>">
                                         <span class="card-title"><%= dreams[i].date %></span>
                                     </div>
                                     <div class="card-content">
                                         <p>
-                                            <%= dreams[i].story.substring(0,34) %> ...
+                                            <%= dreams[i].story.substring(0,70) %> ...
                                         </p>
                                     </div>
                                     <div class="card-action">
@@ -29,7 +29,7 @@
                             </div>
                             <% }}%>
                                 <div class="fixed-action-btn">
-                                    <a href="/api/dreams/dreamForm" class="btn-floating btn-large pink">
+                                    <a href="/api/dreams/dreamForm" class="btn-floating btn-large pink pulse">
                                         <i class="large material-icons">add</i>
                                     </a>
                                 </div>

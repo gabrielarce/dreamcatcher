@@ -2,6 +2,11 @@
     display: none;
 }
 
+html {
+    background: #121212;
+    color: whitesmoke
+}
+
 nav {
     background-color: rgb(38 13 44);
 }
@@ -45,6 +50,10 @@ video {
     padding: 5% 0;
 }
 
+.fulldream img {
+    max-width: 100%;
+}
+
 .dreamform .heading {
     padding: 0 .75rem;
     color: whitesmoke;
@@ -54,4 +63,8 @@ video {
 .heading p {
     font-size: 2rem;
     margin: 0;
+}
+
+.card {
+    background: #121212;
 }
