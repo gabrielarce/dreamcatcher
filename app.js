@@ -57,6 +57,6 @@ app.get("/", (request, response) => {
 app.use('/auth', authRoutes)
 app.use('/api/dreams', dreamRoutes)
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log('listening on port 9000')
 })
