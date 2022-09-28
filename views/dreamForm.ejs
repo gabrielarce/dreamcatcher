@@ -1,6 +1,6 @@
 <%- include("partials/header.ejs") %>
     <!-- Dream Form -->
-    <div class="dreamform container">
+    <div class="container">
         <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i> back </a>
         <div class="row section">
             <form class="col s12" enctype="multipart/form-data" action="/api/dreams/add" method="POST" id="dreamForm" name="form">
@@ -44,12 +44,14 @@
                         </label>
                         </p>
                     </div>
+
                     <p>
                         <label>
                           <input type="checkbox" class="filled-in" name="lucid" id="lucid" value="true" />
-                          <span>Was this a lucid dream?</span>
+                          <span class="">Was this a lucid dream?</span>
                         </label>
                     </p>
+                    <hr>
                     <!-- Dream Description -->
                     <label for="story">What did you dream about?</label>
                     <div class="input-field ">
@@ -97,7 +99,7 @@
                     <!-- Image Uploader -->
                     <label for="imageUpload" class="form-label">Would you like to upload an image for this dream?</label>
                     <div class="input-field">
-                        <input type="file" class="form-control" id="imageUpload" name="file">
+                        <input class="custom-file-upload" type="file" id="imageUpload" name="file">
                     </div>
                     <!-- Submit Button -->
                     <button class="btn waves-effect waves-light waves-green input-field  col" type="submit">Submit

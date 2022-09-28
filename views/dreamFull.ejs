@@ -1,5 +1,6 @@
 <%- include("partials/header.ejs") %>
     <div class="container fulldream">
+        <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i> back </a>
         <h5>
             <%= dream.date %>
         </h5>
@@ -17,9 +18,9 @@
                     </p>
                     <!-- Edit and Delete Buttons with Modal-Confirmation -->
                     <div class="container">
-                        <button class="btn red right waves-effect "><a class="modal-trigger" href="#modal1">Delete <i class="material-icons">delete
+                        <button class="btn red darken-3 right"><a class="modal-trigger delete-edit" href="#modal1"> <i class="material-icons">delete
                         </i></a></button>
-                        <button class="btn yellow right"><a href="/api/dreams/edit/<%= dream._id %>">Edit <i class="material-icons">edit
+                        <button class="btn orange lighten-1 right"><a class="delete-edit" href="/api/dreams/edit/<%= dream._id %>"><i class="material-icons">edit
                         </i></a></button>
 
                         <!-- Modal Structure -->

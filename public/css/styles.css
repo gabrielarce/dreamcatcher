@@ -28,7 +28,7 @@ nav {
 }
 
 .back-button {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 video {
@@ -47,10 +47,16 @@ video {
     padding: 5% 0;
 }
 
+label {
+    font-size: 1.5rem;
+}
+
 .dreamform {
-    background-color: rgba(30, 10, 35, 0.912);
+    background-color: rgba(30, 10, 35, 0.55);
     padding-top: 5%;
     border-radius: 10px;
+    margin: 0 5%;
+    padding: 5% 0 3% 0;
 }
 
 .page-footer {
@@ -58,11 +64,15 @@ video {
 }
 
 .fulldream {
-    padding: 5% 0;
+    padding: 3% 0;
 }
 
 .fulldream img {
     max-width: 100%;
+}
+
+.fulldream p {
+    font-size: 1.55rem;
 }
 
 .dreamform .heading {
@@ -90,4 +100,22 @@ section p {
 
 section h4 {
     font-size: 3.6rem
+}
+
+.delete-edit {
+    color: rgb(74, 13, 74)
+}
+
+.datepicker-calendar-container {
+    background-color: #121212;
+}
+
+.datepicker-buttons {
+    color: whitesmoke;
+}
+
+input,
+select,
+textarea {
+    color: white
 }
