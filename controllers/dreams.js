@@ -19,7 +19,7 @@ module.exports = {
                     story: req.body.story,
                     title: req.body.title || "untitled dream",
                     date: req.body.date,
-                    image: "https://res.cloudinary.com/dd55v5j4d/image/upload/v1663913154/cld-sample-2.jpg",
+                    image: "https://res.cloudinary.com/dd55v5j4d/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1664348839/javardh-2q6C5zDJOsg-unsplash_bvvzug.jpg",
                     user: req.user.id,
                 })
             } else {
@@ -48,9 +48,19 @@ module.exports = {
     },
     deleteDream: async(req, res) => {
         try {
-            await Dream.findOneAndDelete({ _id: req.params.id })
-            console.log('Deleted Dream')
-            res.redirect('/api/dreams/')
+            let dream = await Dream.findById({ _id: req.params.id });
+
+            if (!dream.cloudinaryId) {
+                await dream.deleteOne({ _id: req.params.id })
+                console.log('Deleted Dream')
+                res.redirect('/api/dreams/')
+            } else {
+                await cloudinary.uploader.destroy(dream.cloudinaryId);
+                await dream.deleteOne({ _id: req.params.id })
+                console.log('Deleted Dream')
+                res.redirect('/api/dreams/')
+            }
+
         } catch (err) {
             console.log(err)
         }
@@ -61,21 +71,9 @@ module.exports = {
                 _id: req.params.id,
             }).lean()
 
-            // if (!story) {
-            //     return res.render('error/404')
-            // }
-
-            // if (story.user != req.user.id) {
-            //     res.redirect('/stories')
-            // } else {
-            //     res.render('stories/edit', {
-            //         story,
-            //     })
-            // }
             res.render('dreamEdit', {
                 dream,
             })
-
         } catch (err) {
             console.error(err)
                 // return res.render('error/500')

@@ -119,3 +119,11 @@ select,
 textarea {
     color: white
 }
+
+.modal {
+    background-color: #121212;
+}
+
+.quote-author {
+    font-size: 1.3rem;
+}
