@@ -2,13 +2,24 @@
     display: none;
 }
 
-html {
+body {
     background: #121212;
     color: whitesmoke
 }
 
+
+/* Header Section */
+
 nav {
     background-color: rgb(38 13 44);
+}
+
+.rounded {
+    border-radius: 40px;
+}
+
+.welcome {
+    padding-right: 10px;
 }
 
 #note-textarea {
@@ -29,7 +40,7 @@ video {
 }
 
 .dreams-bg {
-    background-image: url("/images/space2.jpg");
+    background-image: url("/images/gradient2.jpg");
     background-position: center;
     background-size: cover;
     width: 100vw;
@@ -65,6 +76,18 @@ video {
     margin: 0;
 }
 
-.card {
-    background: #121212;
+.sidenav li a {
+    color: whitesmoke
+}
+
+section h4 {
+    padding: 10% 0 2% 0
+}
+
+section p {
+    font-size: 1.6rem;
+}
+
+section h4 {
+    font-size: 3.6rem
 }

@@ -18,35 +18,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.slider');
-    var instances = M.Slider.init(elems, options);
+    var instances = M.Slider.init(elems);
 });
 
 
 //Edit Dream
-const update = document.querySelector('#update').addEventListener('click', updateDream)
+// const update = document.querySelector('#update').addEventListener('click', updateDream)
 
 // Array.from(modal).forEach((element) => {
 //     element.addEventListener('click', deleteDream)
 // })
 
-async function updateDream() {
-    // const dreamId = this.parentNode.parentNode.parentNode.dataset.id
-    const dreamId = this.dataset.id
-    console.log(this.dataset.id)
-    try {
-        const response = await fetch('/api/dreams/delete', {
-            method: 'delete',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({
-                'dreamIdFromJSFile': dreamId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-    } catch (err) {
-        console.log(err)
-    }
-}
+// async function updateDream() {
+//     // const dreamId = this.parentNode.parentNode.parentNode.dataset.id
+//     const dreamId = this.dataset.id
+//     console.log(this.dataset.id)
+//     try {
+//         const response = await fetch('/api/dreams/delete', {
+//             method: 'delete',
+//             headers: { 'Content-type': 'application/json' },
+//             body: JSON.stringify({
+//                 'dreamIdFromJSFile': dreamId
+//             })
+//         })
+//         const data = await response.json()
+//         console.log(data)
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }
 
 
 // Voice to text 
@@ -226,7 +226,6 @@ function getAllNotes() {
             });
         }
     }
-    console.log(notes)
     return notes;
 }
 
