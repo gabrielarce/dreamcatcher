@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs") %>
     <!-- Dream Form -->
     <div class="container">
-        <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i> back </a>
+        <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i>  </a>
         <div class="row section">
             <form class="col s12" enctype="multipart/form-data" action="/api/dreams/add" method="POST" id="dreamForm" name="form">
                 <h3 class="center-align">Record a New Dream</h2>
@@ -45,13 +45,14 @@
                         </p>
                     </div>
 
-                    <p>
+
+                    <div class="lucid-label">
                         <label>
-                          <input type="checkbox" class="filled-in" name="lucid" id="lucid" value="true" />
-                          <span class="">Was this a lucid dream?</span>
-                        </label>
-                    </p>
-                    <hr>
+                            <input type="checkbox" class="filled-in" name="lucid" id="lucid" value="true" />
+                            <span class="">Was this a lucid dream?</span>
+                          </label>
+                    </div>
+
                     <!-- Dream Description -->
                     <label for="story">What did you dream about?</label>
                     <div class="input-field ">
@@ -88,7 +89,7 @@
                     <div class="input-field row">
                         <i class="material-icons prefix">title</i>
 
-                        <input type="text" placeholder="If no title entered, default title will be untitled" class="validate" id="title" name="title">
+                        <input type="text" placeholder="" class="validate" id="title" name="title">
                     </div>
                     <!-- Dream Date -->
                     <label for="date">When was your dream?</label>
@@ -97,7 +98,8 @@
                         <input type="text" class="datepicker validate" name="date" id="date" required="true" aria-required="true">
                     </div>
                     <!-- Image Uploader -->
-                    <label for="imageUpload" class="form-label">Would you like to upload an image for this dream?</label>
+                    <label for="imageUpload" class="form-label">Would you like to upload a photo for this dream?</label>
+                    <p class="wombo">(I recommend <a target="_blank" href="https://www.wombo.art/create">wombo.art</a> for truly dreamy photos ;)</p>
                     <div class="input-field">
                         <input class="custom-file-upload" type="file" id="imageUpload" name="file">
                     </div>

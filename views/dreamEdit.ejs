@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs") %>
     <!-- Dream Form -->
     <div class=" container">
-        <a href="/api/dreams/fulldream/<%= dream._id %>" class="back-button"><i class="fa-solid fa-arrow-left"></i> back </a>
+        <a href="/api/dreams/fulldream/<%= dream._id %>" class="back-button"><i class="fa-solid fa-arrow-left"></i>  </a>
         <div class="row section">
             <form class="col s12" action="/api/dreams/edit/<%= dream._id %>?_method=PUT" method="POST" id="dreamForm" name="form">
                 <h3 class="center-align">Dream Editor</h2>
