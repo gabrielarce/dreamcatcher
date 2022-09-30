@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="/css/styles.css">
-    <title>DreamCatcher</title>
+    <title>Dreamcatcher</title>
 </head>
 
 <body>
     <div class="navbar-fixed">
         <nav class="nav-wrapper">
             <div class="">
-                <a href="/" class="brand-logo center">DreamCatcher</a>
+                <a href="/" class="brand-logo center">Dreamcatcher</a>
                 <a href="#" class="sidenav-trigger" data-target="mobile-links">
                     <i class="material-icons">menu</i>
                 </a>
@@ -43,6 +43,9 @@
         <% if(!user){%>
             <li><a href="/auth/google ">Login with Google</a></li>
             <%  }else{ %>
+                <li class="welcome">Welcome back,
+                    <%= user.firstName %>
+                </li>
                 <li><a href="/api/dreams ">Dashboard</a></li>
                 <li><a href="/api/dreams/dreamForm ">Add a Dream</a></li>
                 <li><a href=" ">Log Out</a></li>

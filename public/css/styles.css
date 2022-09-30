@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Libre+Baskerville&family=Poppins:wght@300;400&display=swap');
 ::-webkit-scrollbar {
     display: none;
 }
@@ -12,6 +13,10 @@ body {
 
 nav {
     background-color: rgb(38 13 44);
+}
+
+.brand-logo {
+    font-family: 'Libre Baskerville', serif;
 }
 
 .rounded {
