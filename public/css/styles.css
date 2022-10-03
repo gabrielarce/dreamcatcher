@@ -1,142 +1,162 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Libre+Baskerville&family=Poppins:wght@300;400&display=swap');
-::-webkit-scrollbar {
-    display: none;
-}
-
-body {
-    background: #121212;
-    color: whitesmoke
-}
-
-
-/* Header Section */
-
-nav {
-    background-color: rgb(38 13 44);
-}
-
-.brand-logo {
-    font-family: 'Libre Baskerville', serif;
-}
-
-.rounded {
-    border-radius: 40px;
-}
-
-.welcome {
-    padding-right: 10px;
-}
-
-#note-textarea {
-    height: 240px;
-    color: #039be5
-}
-
-.back-button {
-    font-size: 2.5rem;
-}
-
-video {
-    object-fit: cover;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-}
-
-.dreams-bg {
-    background-image: url("/images/gradient2.jpg");
-    background-position: center;
-    background-size: cover;
-    width: 100vw;
-    padding: 5% 0;
-}
-
-label {
-    font-size: 1.5rem;
-}
-
-.dreamform {
-    background-color: rgba(30, 10, 35, 0.55);
-    padding-top: 5%;
-    border-radius: 10px;
-    margin: 0 5%;
-    padding: 5% 0 3% 0;
-}
-
-.page-footer {
-    background-color: rgba(23, 20, 24, 0.912);
-}
-
-.fulldream {
-    padding: 3% 0;
-}
-
-.fulldream img {
-    max-width: 100%;
-}
-
-.fulldream p {
-    font-size: 1.55rem;
-}
-
-.dreamform .heading {
-    padding: 0 .75rem;
-    color: whitesmoke;
-    margin: 1rem 0;
-}
-
-.heading p {
-    font-size: 2rem;
-    margin: 0;
-}
-
-.sidenav li a {
-    color: whitesmoke
-}
-
-section h4 {
-    padding: 10% 0 2% 0
-}
-
-section p {
-    font-size: 1.6rem;
-}
-
-section h4 {
-    font-size: 3.6rem
-}
-
-.delete-edit {
-    color: rgb(74, 13, 74)
-}
-
-.datepicker-calendar-container {
-    background-color: #121212;
-}
-
-.datepicker-buttons {
-    color: whitesmoke;
-}
-
-input,
-select,
-textarea {
-    color: white
-}
-
-.modal {
-    background-color: #121212;
-}
-
-.quote-author {
-    font-size: 1.3rem;
-}
-
-.lucid-label {
-    margin-bottom: 20px;
-}
-
-.wombo {
-    font-size: .9rem;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Libre+Baskerville&family=Poppins:wght@300;400&display=swap');
+     ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    body {
+        background: #121212;
+        color: whitesmoke
+    }
+    /* Header Section */
+    
+    nav {
+        background-color: rgb(38 13 44);
+    }
+    
+    .brand-logo {
+        font-family: 'Libre Baskerville', serif;
+    }
+    
+    .rounded {
+        border-radius: 40px;
+    }
+    
+    .welcome {
+        padding-right: 10px;
+    }
+    
+    #note-textarea {
+        height: 240px;
+        color: #039be5
+    }
+    
+    .back-button {
+        font-size: 2.5rem;
+    }
+    
+    video {
+        object-fit: cover;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+    }
+    
+    .dreams-bg {
+        background-image: url("/images/gradient2.jpg");
+        background-position: center;
+        background-size: cover;
+        width: 100vw;
+        padding: 5% 0;
+    }
+    
+    label {
+        font-size: 1.5rem;
+    }
+    
+    .dreamform {
+        background-color: rgba(30, 10, 35, 0.55);
+        padding-top: 5%;
+        border-radius: 10px;
+        margin: 0 5%;
+        padding: 5% 0 3% 0;
+    }
+    
+    .page-footer {
+        background-color: rgba(23, 20, 24, 0.912);
+    }
+    
+    .fulldream {
+        padding: 3% 0;
+    }
+    
+    .fulldream img {
+        max-width: 100%;
+    }
+    
+    .fulldream p {
+        font-size: 1.55rem;
+    }
+    
+    .dreamform .heading {
+        padding: 0 .75rem;
+        color: whitesmoke;
+        margin: 1rem 0;
+    }
+    
+    .heading p {
+        font-size: 2rem;
+        margin: 0;
+    }
+    
+    .sidenav li a {
+        color: whitesmoke
+    }
+    
+    section h4 {
+        padding: 10% 0 2% 0
+    }
+    
+    section p {
+        font-size: 1.6rem;
+    }
+    
+    section h4 {
+        font-size: 3.6rem
+    }
+    
+    .delete-edit {
+        color: rgb(74, 13, 74)
+    }
+    
+    .datepicker-calendar-container {
+        background-color: #121212;
+    }
+    
+    .datepicker-buttons {
+        color: whitesmoke;
+    }
+    
+    input,
+    select,
+    textarea {
+        color: white
+    }
+    
+    .modal {
+        background-color: #121212;
+    }
+    
+    .quote-author {
+        font-size: 1.3rem;
+    }
+    
+    .lucid-label {
+        margin-bottom: 20px;
+    }
+    
+    .wombo {
+        font-size: .9rem;
+    }
+    
+    .container .about-header {
+        margin: 0 0 2% 0;
+    }
+    
+    .about-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 490px) {
+        section h4 {
+            font-size: 3rem;
+        }
+        .quote-author {
+            font-size: 1.8rem;
+        }
+        .container p {
+            font-size: 1.4rem;
+        }
+    }
