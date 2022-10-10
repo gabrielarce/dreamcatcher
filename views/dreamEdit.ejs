@@ -6,92 +6,102 @@
             <form class="col s12" action="/api/dreams/edit/<%= dream._id %>?_method=PUT" method="POST" id="dreamForm" name="form">
                 <h3 class="center-align">Dream Editor</h2>
                     <!-- Dream Title -->
-                    <label for="title">Dream Title</label>
-                    <div class="input-field row">
-                        <i class="material-icons prefix">title</i>
+                    <div class="highlight">
+                        <label for="title">Dream Title</label>
+                        <div class="input-field row">
+                            <i class="material-icons prefix">title</i>
 
-                        <input type="text" placeholder="If no title entered, default title will be untitled" class="validate" id="title" name="title" value="<%=dream.title %>">
+                            <input type="text" placeholder="If no title entered, default title will be untitled" class="validate" id="title" name="title" value="<%=dream.title %>">
+                        </div>
                     </div>
                     <!-- Dream Rating -->
-                    <div class="row">
+
+                    <div class="highlight">
                         <label for="rating"> What kind of dream did you have?</label>
                         <p>
                             <label>
-                    <input name="rating" type="radio" id="amazing" value ="amazing" class="validate" required="true" aria-required="true" />
-                    <span><i class="material-icons">sentiment_very_satisfied
-                    </i>  Amazing Dream</span>
-                    </label>
-                        </p>
-                        <p>
-                            <label>
-                        <input name="rating" type="radio" id="nice" value ="nice" />
-                        <span><i class="material-icons">sentiment_satisfied
-                        </i> Nice Dream</span>
+                        <input name="rating" type="radio" id="amazing" value ="amazing" class="validate" required="true" aria-required="true" />
+                        <span><i class="material-icons happy-blue">sentiment_very_satisfied
+                        </i>  Amazing Dream</span>
                         </label>
                         </p>
                         <p>
                             <label>
-                        <input name="rating" type="radio" id="neutral" value ="neutral"/>
-                        <span><i class="material-icons">sentiment_neutral
-                        </i>  Neutral Dream</span>
-                        </label>
+                            <input name="rating" type="radio" id="nice" value ="nice" />
+                            <span><i class="material-icons nice-green">sentiment_satisfied
+                            </i> Nice Dream</span>
+                            </label>
                         </p>
                         <p>
                             <label>
-                        <input name="rating" type="radio" id="stress" value ="stress" />
-                        <span><i class="material-icons">sentiment_dissatisfied
-                        </i>  Stress Dream</span>
-                        </label>
+                            <input name="rating" type="radio" id="neutral" value ="neutral"/>
+                            <span><i class="material-icons neutral-yellow">sentiment_neutral
+                            </i>  Neutral Dream</span>
+                            </label>
                         </p>
                         <p>
                             <label>
-                        <input name="rating" type="radio" id="nightmare" value ="nightmare" />
-                        <span><i class="material-icons">sentiment_very_dissatisfied
-                        </i>  Nightmare</span>
-                        </label>
+                            <input name="rating" type="radio" id="stress" value ="stress" />
+                            <span><i class="material-icons stress-orange">sentiment_dissatisfied
+                            </i>  Stress Dream</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                            <input name="rating" type="radio" id="nightmare" value ="nightmare" />
+                            <span><i class="material-icons scarry-red">sentiment_very_dissatisfied
+                            </i>  Nightmare</span>
+                            </label>
                         </p>
                     </div>
-                    <p>
-                        <label>
-                          <input type="checkbox" class="filled-in" name="lucid" id="lucid" value="true"/>
-                          <span>Was this a lucid dream?</span>
-                        </label>
-                    </p>
+                    <!-- Lucid Dream -->
+                    <div class="highlight">
+                        <p>
+                            <label>
+                              <input type="checkbox" class="filled-in" name="lucid" id="lucid" value="true"/>
+                              <span>Was this a lucid dream?</span>
+                            </label>
+                        </p>
+                    </div>
                     <!-- Dream Description -->
-                    <label for="story">What did you dream about?</label>
-                    <div class="input-field ">
-                        <i class="material-icons prefix">subject
+                    <div class="highlight">
+                        <label for="story">What did you dream about?</label>
+                        <div class="input-field ">
+                            <i class="material-icons prefix">subject
                         </i>
-                        <textarea id="story" class="materialize-textarea validate" name="story" required placeholder="I dreamt that..."><%= dream.story %></textarea>
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="fa-solid fa-microphone"></i></a>
-                        <!-- Modal Structure -->
-                        <div id="modal1" class="modal">
-                            <div class="modal-content">
-                                <h4>Voice to Text</h4>
-                                <!-- <p>A bunch of text</p> -->
-                            </div>
-                            <div class="app container">
-                                <div class="">
-                                    <textarea id="note-textarea" class="" placeholder="Create a new note by using voice recognition." rows="20"></textarea>
+                            <textarea id="story" class="materialize-textarea validate" name="story" required placeholder="I dreamt that..."><%= dream.story %></textarea>
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="fa-solid fa-microphone"></i></a>
+                            <!-- Modal Structure -->
+                            <div id="modal1" class="modal">
+                                <div class="modal-content">
+                                    <h4>Voice to Text</h4>
+                                    <!-- <p>A bunch of text</p> -->
                                 </div>
-                                <a href="#!" id="start-record-btn" title="Start Recording">Start Mic <i class="fa-solid fa-microphone"></i></a>
-                                <a href="#!" id="pause-record-btn" title="Pause Recording">Pause Mic <i class="fa-solid fa-pause"></i></a>
-                                <!-- <button id="save-note-btn" title="Save Note">Save Note</button> -->
-                                <p id="recording-instructions">Press the <strong>Start Mic</strong> button to begin recording.<br> Press the <strong>Pause Mic</strong> button to pause recording and resize text area.
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" id="discardVoiceNote" class="modal-close waves-effect waves-red btn-flat">Discard Story</a>
-                                <a href="#!" id="addVoiceNote" class="modal-close waves-effect waves-green btn-flat">Add Story</a>
+                                <div class="app container">
+                                    <div class="">
+                                        <textarea id="note-textarea" class="" placeholder="Create a new note by using voice recognition." rows="20"></textarea>
+                                    </div>
+                                    <a href="#!" id="start-record-btn" title="Start Recording">Start Mic <i class="fa-solid fa-microphone"></i></a>
+                                    <a href="#!" id="pause-record-btn" title="Pause Recording">Pause Mic <i class="fa-solid fa-pause"></i></a>
+                                    <!-- <button id="save-note-btn" title="Save Note">Save Note</button> -->
+                                    <p id="recording-instructions">Press the <strong>Start Mic</strong> button to begin recording.<br> Press the <strong>Pause Mic</strong> button to pause recording and resize text area.
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" id="discardVoiceNote" class="modal-close waves-effect waves-red btn-flat">Discard Story</a>
+                                    <a href="#!" id="addVoiceNote" class="modal-close waves-effect waves-green btn-flat">Add Story</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- Dream Date -->
-                    <label for="date">When was your dream?</label>
-                    <div class="input-field row validate">
-                        <i class="material-icons prefix">today</i>
-                        <input type="text" class="datepicker validate" name="date" id="date" required="true" aria-required="true" value="<%=dream.date %>">
+                    <div class="highlight">
+                        <label for="date">When was your dream?</label>
+                        <div class="input-field row validate">
+                            <i class="material-icons prefix">today</i>
+                            <input type="text" class="datepicker validate" name="date" id="date" required="true" aria-required="true" value="<%=dream.date %>">
+                        </div>
                     </div>
                     <!-- Submit Button -->
                     <button id="update" class="btn waves-effect waves-light waves-green input-field col" type="submit">Submit

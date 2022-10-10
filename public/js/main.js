@@ -21,6 +21,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Slider.init(elems);
 });
 
+// const highlight = () => {
+//     const highlights = document.querySelectorAll('.test');
+//     console.log(highlights)
+// }
+
+// const highlights = document.querySelectorAll('.test');
+// Array.from(highlights).forEach(el => {
+//     el.addEventListener('click', highlight)
+// })
+
+
+
 
 //Edit Dream
 // const update = document.querySelector('#update').addEventListener('click', updateDream)

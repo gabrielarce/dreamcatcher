@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
@@ -25,11 +26,14 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <% if(!user){%>
-                        <li class="button indigo darken-2 rounded"><a href="/auth/google"><i class="fab fa-google"></i> Log in with Google </a></li>
+                        <a class="blue btn-large" href="/api/dreams/dreamland">DreamLand</a>
+                        <a href="/auth/google " class="waves-effect waves-light btn-large indigo darken-2 "> Log in with <span class="google">Google</span></a>
                         <%  }else{ %>
                             <li class="welcome">Welcome back,
                                 <%= user.firstName %>
                             </li>
+                            <li class="blue rounded">
+                                <a href="/api/dreams/dreamland">DreamLand</a></li>
                             <li class="purple rounded">
                                 <a href="/api/dreams">Dashboard</a></li>
                             <li class=""><a href="/auth/logout">Log  Out</a></li>
@@ -42,6 +46,7 @@
     <ul class="sidenav grey darken-4" id="mobile-links">
         <% if(!user){%>
             <li><a href="/auth/google ">Login with Google</a></li>
+            <li><a href="/api/dreams/dreamland ">DreamLand</a></li>
             <%  }else{ %>
                 <li class="welcome">Welcome back,
                     <%= user.firstName %>

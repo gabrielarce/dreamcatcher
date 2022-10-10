@@ -6,6 +6,10 @@ module.exports = {
         const dreams = await Dream.find({ user: req.user.id }).lean().sort({ date: -1 })
         res.render('dashboard', { dreams })
     },
+    getDreamLand: async(req, res) => {
+        const dreams = await Dream.find({ public: true }).lean().sort({ date: -1 })
+        res.render('dreamLand', { dreams })
+    },
     getFullDream: async(req, res) => {
         const dream = await Dream.findById(req.params.id)
         res.render('dreamFull', { dream })
@@ -21,6 +25,7 @@ module.exports = {
                     date: req.body.date,
                     image: "https://res.cloudinary.com/dd55v5j4d/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1664348839/javardh-2q6C5zDJOsg-unsplash_bvvzug.jpg",
                     user: req.user.id,
+                    public: req.body.public
                 })
             } else {
                 // Upload image to cloudinary
@@ -35,6 +40,7 @@ module.exports = {
                     image: result.secure_url,
                     cloudinaryId: result.public_id,
                     user: req.user.id,
+                    public: req.body.public
                 })
             }
             console.log('Dream has been added to the dashboard!')

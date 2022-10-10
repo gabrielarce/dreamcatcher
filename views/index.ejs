@@ -20,12 +20,23 @@
     </section>
     <section class="row">
         <div class="container">
-            <h4>About DreamCatcher</h4>
-            <p>Dreamcatcher is a web application that allows you to keep a record of your dreams; easily accessible across all devices. It's designed to allow you to sign in with Google and quickly capture your dream as you awaken.</p>
-            <p>You can personalize a dream entry by adding an image.</p>
-            <% if(!user){%>
-                <a class="waves-effect waves-light btn-large indigo darken-2 rounded"><i class="fab fa-google"></i> Log in with Google</a>
-                <%  } %>
+            <div class="about-header">
+                <h4>About DreamCatcher</h4>
+            </div>
+            <div class="col s12 l6">
+                <p>Dreamcatcher is a web app that allows you to keep a record of your dreams. It's designed to be easily accessible across all devices.</p>
+                <p>Too tired to write down your dream when you wake up? Try using the voice to text feature for a more streamlined process. Then, customize your dream entry by attaching a unique image to add life to your dream.</p>
+            </div>
+            <div class="col s12 l6">
+                <img class="about-img" src="https://res.cloudinary.com/dd55v5j4d/image/upload/v1665389340/johannes-plenio-DKix6Un55mw-unsplash_1_jxg6ei.jpg" alt="">
+                <p>Read public dreams from your fellow Dreamers</p>
+                <a class="blue btn-large rounded" href="/api/dreams/dreamland">DreamLand</a>
+                <% if(!user){%>
+                    <p>Or log into start recording your dreams</p>
+                    <a href="/auth/google " class="waves-effect waves-light btn-large indigo darken-2 rounded"> Log in with <span class="google">Google</span></a>
+                    <%  } %>
+            </div>
+
         </div>
     </section>
     <%- include("partials/footer.ejs") %>

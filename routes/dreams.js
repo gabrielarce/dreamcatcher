@@ -8,9 +8,11 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 router.get('/', ensureAuth, dreamsController.getDreams)
 
+router.get('/dreamland', dreamsController.getDreamLand)
+
 router.get('/dreamForm', ensureAuth, dreamsController.getDreamForm)
 
-router.get('/fullDream/:id', ensureAuth, dreamsController.getFullDream)
+router.get('/fullDream/:id', ensureGuest, dreamsController.getFullDream)
 
 router.post('/add', ensureAuth, upload.single("file"), dreamsController.postDream)
 

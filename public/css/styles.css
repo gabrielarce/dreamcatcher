@@ -3,9 +3,14 @@
         display: none;
     }
     
+    html {
+        position: relative;
+        min-height: 100vh;
+    }
+    
     body {
         background: #121212;
-        color: whitesmoke
+        color: whitesmoke;
     }
     /* Header Section */
     
@@ -23,6 +28,10 @@
     
     .welcome {
         padding-right: 10px;
+    }
+    
+    .google {
+        font-family: 'PT Sans', sans-serif;
     }
     
     #note-textarea {
@@ -47,6 +56,7 @@
         background-position: center;
         background-size: cover;
         width: 100vw;
+        /* height: 100vh; */
         padding: 5% 0;
     }
     
@@ -64,6 +74,8 @@
     
     .page-footer {
         background-color: rgba(23, 20, 24, 0.912);
+        bottom: 0;
+        width: 100%;
     }
     
     .fulldream {
@@ -82,6 +94,12 @@
         padding: 0 .75rem;
         color: whitesmoke;
         margin: 1rem 0;
+    }
+    
+    .highlight:hover {
+        outline: none;
+        border-color: #00a2ff;
+        box-shadow: 0 0 10px #00eeff;
     }
     
     .heading p {
@@ -159,4 +177,25 @@
         .container p {
             font-size: 1.4rem;
         }
+    }
+    /* color classes */
+    
+    .happy-blue {
+        color: #00beff;
+    }
+    
+    .nice-green {
+        color: green
+    }
+    
+    .neutral-yellow {
+        color: rgb(126, 157, 62);
+    }
+    
+    .stress-orange {
+        color: orange;
+    }
+    
+    .scarry-red {
+        color: red;
     }
