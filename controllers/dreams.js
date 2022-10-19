@@ -1,5 +1,6 @@
 const cloudinary = require("../middleware/cloudinary");
-const Dream = require('../models/Dream')
+const Dream = require('../models/Dream');
+const Comment = require("../models/Comment");
 
 module.exports = {
     getDreams: async(req, res) => {
@@ -12,7 +13,8 @@ module.exports = {
     },
     getFullDream: async(req, res) => {
         const dream = await Dream.findById(req.params.id)
-        res.render('dreamFull', { dream })
+        const comments = await Comment.find({ post: req.params.id }).sort({ createdAt: "desc" }).lean();
+        res.render('dreamFull', { dream, comments })
     },
     postDream: async(req, res) => {
         try {

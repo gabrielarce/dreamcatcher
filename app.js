@@ -2,11 +2,12 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 9000;
 const path = require("path");
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 const passport = require('passport');
 const session = require('express-session');
 const connectDB = require('./config/database');
 const dreamRoutes = require('./routes/dreams');
+const commentRoutes = require("./routes/comments");
 const authRoutes = require('./routes/auth');
 const MongoStore = require('connect-mongo');
 const { db } = require('./models/Dream');
@@ -56,6 +57,7 @@ app.get("/", (request, response) => {
 
 app.use('/auth', authRoutes)
 app.use('/api/dreams', dreamRoutes)
+app.use("/comment", commentRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log('listening on port 9000')
