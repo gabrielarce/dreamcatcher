@@ -21,9 +21,9 @@
                         <% if(user._id.equals( dream.user)){ %>
                             <!-- Edit and Delete Buttons with Modal-Confirmation -->
                             <div class="delete-edit">
-                                <button class="btn red darken-3 right"><a class="modal-trigger delete-edit" href="#modal1"> <i class="material-icons">delete
+                                <button class="btn red darken-3 "><a class="modal-trigger delete-edit" href="#modal1"> <i class="material-icons">delete
                         </i></a></button>
-                                <button class="btn orange lighten-1 right"><a class="delete-edit" href="/api/dreams/edit/<%= dream._id %>"><i class="material-icons">edit
+                                <button class="btn orange lighten-1 "><a class="delete-edit" href="/api/dreams/edit/<%= dream._id %>"><i class="material-icons">edit
                         </i></a></button>
 
                                 <!-- Modal Structure -->
@@ -61,7 +61,7 @@
                                             <% } %>
 
                                     </ul>
-                                    <h2>Add a comment</h2>
+                                    <h5>Add a comment</h5>
                                     <form action="/comment/createComment/<%= dream._id%>" method="POST">
                                         <div class="mb-3">
                                             <label for="Comment" class="form-label">Comment</label>
