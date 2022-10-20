@@ -27,7 +27,7 @@
                 <ul class="right hide-on-med-and-down">
                     <% if(!user){%>
                         <a class="blue btn-large" href="/api/dreams/dreamland">DreamLand</a>
-                        <a href="/auth/google " class="waves-effect waves-light btn-large indigo darken-2 "> Log in with <span class="google">Google</span></a>
+                        <a class="login-with-google-btn right" href="/auth/google ">Sign In with Google</a>
                         <%  }else{ %>
                             <li class="welcome">Welcome back,
                                 <%= user.firstName %>
@@ -45,7 +45,7 @@
 
     <ul class="sidenav grey darken-4" id="mobile-links">
         <% if(!user){%>
-            <li><a href="/auth/google ">Login with Google</a></li>
+            <li><a class="login-with-google-btn" href="/auth/google ">Sign In with Google</a></li>
             <li><a href="/api/dreams/dreamland ">DreamLand</a></li>
             <%  }else{ %>
                 <li class="welcome">Welcome back,
