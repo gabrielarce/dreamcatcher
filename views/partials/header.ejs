@@ -26,18 +26,22 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <% if(!user){%>
-                        <a class="blue btn-large" href="/api/dreams/dreamland">DreamLand</a>
-                        <a class="login-with-google-btn right" href="/auth/google ">Sign In with Google</a>
+                        <li class="dreamland-li">
+                            <a class="bn31" href="/api/dreams/dreamland"><span class="bn31span">Dreamland</span></a>
+                        </li>
+                        <li class="right"><a class="login-with-google-btn" href="/auth/google ">Sign In with Google</a></li>
                         <%  }else{ %>
                             <li class="welcome">Welcome back,
                                 <%= user.firstName %>
                             </li>
-                            <li class="blue rounded">
-                                <a href="/api/dreams/dreamland">DreamLand</a></li>
-                            <li class="purple rounded">
-                                <a href="/api/dreams">Dashboard</a></li>
-                            <li class=""><a href="/auth/logout">Log  Out</a></li>
-                            <%  } %>
+                            <li class="dreamland-li">
+                                <a class="bn31" href="/api/dreams/dreamland"><span class="bn31span">Dreamland</span></a>
+                                <!-- <a href="/api/dreams/dreamland">DreamLand</a> -->
+                            </li>
+                            <li class="dreamland-li">
+                                <a class="bn31" href="/api/dreams"><span class="bn31span">Dashboard</span></a>
+                                <li class=""><a href="/auth/logout">Log  Out</a></li>
+                                <%  } %>
                 </ul>
             </div>
         </nav>

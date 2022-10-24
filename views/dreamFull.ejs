@@ -1,30 +1,29 @@
 <%- include("partials/header.ejs") %>
-    <div class="container fulldream">
-        <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i></a>
-        <h5>
-            <%= dream.date %>
-        </h5>
-        <img src="<%= dream.image %>" alt="">
-        <h3>
-            <%= dream.title %>
-        </h3>
-        <% if(dream.lucid){ %>
-            <span>Lucid Dream</span>
-            <% } %>
-                <div>
-                    <span>Mood : <%= dream.rating %></span>
+
+    <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="row">
+        <div class="col s12 m7 l12 fulldream">
+            <div class="card large ">
+                <div class="card-image">
+                    <img src="<%= dream.image %>">
+                    <span class="card-title"><%= dream.title %></span>
+
+                </div>
+                <div class="card-content ">
+                    <span class="card-title"><%= dream.date %></span>
                     <p>
                         <%= dream.story %>
                     </p>
-
+                </div>
+                <div class="card-action ">
                     <% if(user){ %>
                         <% if(user._id.equals( dream.user)){ %>
                             <!-- Edit and Delete Buttons with Modal-Confirmation -->
                             <div class="delete-edit">
                                 <button class="btn red darken-3 "><a class="modal-trigger delete-edit" href="#modal1"> <i class="material-icons">delete
-                        </i></a></button>
+                    </i></a></button>
                                 <button class="btn orange lighten-1 "><a class="delete-edit" href="/api/dreams/edit/<%= dream._id %>"><i class="material-icons">edit
-                        </i></a></button>
+                    </i></a></button>
 
                                 <!-- Modal Structure -->
                                 <div id="modal1" class="modal modal-fixed-footer">
@@ -42,41 +41,39 @@
                             </div>
 
                             <% } %>
-                                <div class="mt-5">
-                                    <ul class="row list-unstyled">
-                                        <% for(var i=0; i<comments.length; i++) {%>
-                                            <li class="col-6 justify-content-between mt-5">
-                                                <%=comments[i].comment%>
-                                                    <form class="col-1" action="/comment/likeComment/<%= comments[i]._id %>?_method=PUT" method="POST">
-                                                        <!-- <button class="btn btn-primary fa fa-heart pink" type="submit"> + <%= comments[i].likes %> </button> -->
-                                                        <label class="like">
-                                                            <input type="checkbox"/>
-                                                            <div class="hearth"/>
-                                                          </label>
-                                                    </form>
-
-                                                    <%if(comments[i].user == user.id){ %>
-                                                        <form action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE" method="POST" class="col-3">
-                                                            <button class="btn btn-primary fa fa-trash red darken-3" type="submit"></button>
-                                                        </form>
-                                                        <%}%>
-                                            </li>
-                                            <hr>
-                                            <% } %>
-
-                                    </ul>
-                                    <h5>Add a comment</h5>
-                                    <form action="/comment/createComment/<%= dream._id%>" method="POST">
-                                        <div class="mb-3">
-                                            <label for="Comment" class="form-label">Comment</label>
-                                            <input type="text" class="form-control" id="comment" name="comment">
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </form>
-                                </div>
                                 <% } %>
-
                 </div>
+            </div>
+            <div class="col s12 m7 l12">
+                <h5>Comments</h5>
+                <ul class="row">
+                    <% for(var i=0; i< comments.length; i++) {%>
+                        <li class="">
+                            <%= comments[i].comment%>
+                                <% if(user){ %>
+                                    <%if(comments[i].user == user.id){ %>
+                                        <form action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE" method="POST" class="col-3">
+                                            <button class="fa fa-trash red darken-3" type="submit"></button>
+                                        </form>
+                                        <%}%>
+                                            <%}%>
+                        </li>
+                        <% } %>
+
+                </ul>
+                <% if(user){%>
+                    <h5>Add a comment</h5>
+                    <form action="/comment/createComment/<%= dream._id%>" method="POST">
+                        <div class="mb-3">
+                            <label for="Comment" class="form-label">Comment</label>
+                            <input type="text" class="form-control" id="comment" name="comment">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <% } %>
+            </div>
+        </div>
     </div>
+
     <%- include("partials/footer.ejs") %>

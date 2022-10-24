@@ -78,8 +78,8 @@
         width: 100%;
     }
     
-    .fulldream {
-        padding: 3% 0;
+    .row .fulldream {
+        padding: 3% 10%;
     }
     
     .fulldream img {
@@ -94,6 +94,10 @@
         padding: 0 .75rem;
         color: whitesmoke;
         margin: 1rem 0;
+    }
+    
+    .col .card {
+        background-color: #121212;
     }
     
     .highlight:hover {
@@ -199,6 +203,44 @@
             box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
             cursor: not-allowed;
         }
+    }
+    /* Dashboard Button */
+    
+    li .bn31 {
+        background-image: linear-gradient(to right, #05b9b9 0%, #8c7fcd 100%);
+        border-radius: 40px;
+        box-sizing: border-box;
+        color: #020c0e;
+        display: block;
+        height: 50px;
+        font-size: 1.4em;
+        padding: 4px;
+        position: relative;
+        text-decoration: none;
+        width: 7em;
+        z-index: 2;
+    }
+    
+    .bn31:hover {
+        color: #fff;
+    }
+    
+    .bn31 .bn31span {
+        align-items: center;
+        border-radius: 40px;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        transition: background 0.5s ease;
+        width: 100%;
+    }
+    
+    .bn31:hover .bn31span {
+        background: transparent;
+    }
+    
+    .dreamland-li {
+        margin: 7px;
     }
     
     @media (min-width: 320px) and (max-width: 490px) {
