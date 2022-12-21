@@ -38,17 +38,18 @@
                             <a class="waves-effect waves-light btn blue lighten-2" href="/signup">Sign Up</a>
                         </li>
                         <%  }else{ %>
-                            <li class="welcome">Welcome back,
-                                <%= user.firstName %>
-                            </li>
-                            <li class="Journal">
-                                <a class="" href="/api/dreams/dreamland">Dreams</a>
-                            </li>
-                            <li class="Dashboard">
-                                <a class="" href="/api/dreams">Dashboard</a>
+                            <li class="welcome">
+                                <a href="/user/">Welcome back,
+                                    <%= user.firstName %></a>
                             </li>
                             <li class="">
-                                <a href="/auth/logout">Log  Out</a>
+                                <a class="" href="/api/dreams/dreamForm">Add Dream</a>
+                            </li>
+                            <li class="Dashboard">
+                                <a class="" href="/api/dreams">Journal</a>
+                            </li>
+                            <li class="">
+                                <a href="/auth/logout">Log Out</a>
                             </li>
                             <%  } %>
                 </ul>
@@ -58,8 +59,8 @@
 
     <ul class="sidenav grey darken-4" id="mobile-links">
         <% if(!user){%>
-            <li><a class="login-with-google-btn" href="/auth/google ">Sign In with Google</a></li>
-            <li><a href="/api/dreams/dreamland ">DreamLand</a></li>
+            <li><a class="" href="/auth/google ">Log In</a></li>
+            <li><a href="/signup">Sign Up</a></li>
             <%  }else{ %>
                 <li class="welcome">Welcome back,
                     <%= user.firstName %>
