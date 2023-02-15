@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+<div class="row">
+  <div class="col l12 m12 s12">
+    <div class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-image">
+            <img src="<%= user.image%> " alt="" />
+          </div>
+          <div class="card-content">
+            <div class="row">
+              <div class="col s4 profile-pic">
+                <img
+                  class="circle responsive-img"
+                  src="https://lh3.googleusercontent.com/-W2XryVdi-lA/U6tSAh3SsbI/AAAAAAAAFGY/ZHJiUEcR_Zs/w480-h480/avatar%2Bmaterial%2Bdesign.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <span class="card-title black-text"><%= user.displayName%></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

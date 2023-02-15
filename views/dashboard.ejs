@@ -1,39 +1,107 @@
 <%- include("partials/header.ejs") %>
-    <div class="dreams-bg">
-        <div class="dreamform">
-            <div class="heading">
-                <h3>All Your Dreams are Here with You</h3>
-            </div>
-            <% if(dreams.length < 1){ %>
-                <p>You have not entered any dreams.</p>
-                <% } else{ %>
-                    <div class="row">
-                        <% for(var i = 0; i < dreams.length; i++) { %>
-                            <div class="col s12 l4">
-                                <div class="card small grey darken-4">
-                                    <div class="card-image small">
-                                        <img src="<%= dreams[i].image %>">
-                                        <span class="card-title"><%= dreams[i].date %></span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p>
-                                            <%= dreams[i].story.substring(0,70) %> ...
-                                        </p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="/api/dreams/fullDream/<%=dreams[i]._id%>">
-                                            <%= dreams[i].title %>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <% }}%>
-                                <div class="fixed-action-btn">
-                                    <a href="/api/dreams/dreamForm" class="btn-floating btn-large pink pulse">
-                                        <i class="large material-icons">add</i>
-                                    </a>
-                                </div>
-                    </div>
-        </div>
+<div class="dreams-bg">
+  <div class="row dashboard">
+    <div class="heading">
+      <h2>Dashboard</h2>
     </div>
-    <%- include("partials/footer.ejs") %>
+    <% if(dreams.length < 1){ %>
+    <p>You have not entered any dreams.</p>
+    <% } else{ %>
+    <div class="col l6">
+      <h4>Dream Journal</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Mood</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i = 0; i < dreams.length; i++) { %>
+          <tr>
+            <td><%= dreams[i].dateAlias %></td>
+            <td><%= dreams[i].title %></td>
+            <td><%= dreams[i].rating %></td>
+            <td>
+              <a
+                href="/api/dreams/fullDream/<%=dreams[i]._id%>"
+                class="secondary-content"
+                ><i class="small material-icons">navigate_next</i></a
+              >
+            </td>
+          </tr>
+
+          <% }}%>
+        </tbody>
+      </table>
+      <!-- Pagination Component -->
+      <ul class="pagination center-align">
+        <% if (currentPage > 1) { %>
+        <li class="waves-effect">
+          <a href="/api/dreams/?page=<%= currentPage - 1 %>">
+            <i class="material-icons">chevron_left</i>
+          </a>
+        </li>
+        <% } %> <% for (let i = 1; i <= totalPages; i++) { %> <% if (i ===
+        +currentPage) { %>
+        <li class="active">
+          <a href="/api/dreams/?page=<%= i %>"> <%= i %> </a>
+        </li>
+        <% } else { %>
+        <li class="waves-effect">
+          <a href="/api/dreams/?page=<%= i %>"> <%= i %> </a>
+        </li>
+        <% } %> <% } %> <% if (currentPage < totalPages) { %>
+        <li class="waves-effect">
+          <a href="/api/dreams/?page=<%= Number(currentPage) + Number(1) %>">
+            <i class="material-icons">chevron_right</i>
+          </a>
+        </li>
+        <% } %>
+      </ul>
+      <!-- here -->
+      <div class="fixed-action-btn">
+        <a
+          href="/api/dreams/dreamForm"
+          class="btn-floating btn-large pink pulse"
+        >
+          <i class="large material-icons">add</i>
+        </a>
+      </div>
+    </div>
+    <!-- Dashboard Card  -->
+    <div class="col s12 m6 xl3">
+      <div class="card">
+        <div class="card-content cyan white-text">
+          <p class="card-stats-title">
+            <i class="material-icons">person_outline</i> New Clients
+          </p>
+          <h4 class="card-stats-number white-text">566</h4>
+          <p class="card-stats-compare">
+            <i class="material-icons">keyboard_arrow_up</i> 15%
+            <span class="cyan text text-lighten-5">from yesterday</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Dashboard Card  -->
+    <div class="col s12 m6 xl3">
+      <div class="card">
+        <div class="card-content red accent-two white-text">
+          <p class="card-stats-title">
+            <i class="material-icons">person_outline</i> New Clients
+          </p>
+          <h4 class="card-stats-number white-text">566</h4>
+          <p class="card-stats-compare">
+            <i class="material-icons">keyboard_arrow_up</i> 15%
+            <span class="red accent-two text text-lighten-5"
+              >from yesterday</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

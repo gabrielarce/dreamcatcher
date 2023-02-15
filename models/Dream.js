@@ -19,8 +19,12 @@ const DreamSchema = new mongoose.Schema({
         trim: true,
         required: true,
     },
-    date: {
+    dateAlias: {
         type: String,
+        required: true,
+    },
+    date: {
+        type: Date,
         required: true,
     },
     image: {

@@ -1,73 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
-    <!-- Favicon Links -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicon Links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Dreamcatcher</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="navbar-fixed">
-        <nav class="nav-wrapper">
-            <div class="">
-                <a href="/" class="brand-logo center">Dreamcatcher</a>
-                <a href="#" class="sidenav-trigger" data-target="mobile-links">
-                    <i class="material-icons">menu</i>
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <% if(!user){%>
-                        <li class="">
-                            <a class="waves-effect waves-light btn purple darken-2" href="/auth/google">Login</a>
-                        </li>
-                        <li class="">
-                            <a class="waves-effect waves-light btn blue lighten-2" href="/signup">Sign Up</a>
-                        </li>
-                        <%  }else{ %>
-                            <li class="welcome">
-                                <a href="/user/">Welcome back,
-                                    <%= user.firstName %></a>
-                            </li>
-                            <li class="">
-                                <a class="" href="/api/dreams/dreamForm">Add Dream</a>
-                            </li>
-                            <li class="Dashboard">
-                                <a class="" href="/api/dreams">Journal</a>
-                            </li>
-                            <li class="">
-                                <a href="/auth/logout">Log Out</a>
-                            </li>
-                            <%  } %>
-                </ul>
-            </div>
-        </nav>
+      <nav class="nav-wrapper">
+        <div class="">
+          <a href="/" class="brand-logo center">Dreamcatcher</a>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <% if(!user){%>
+            <li class="">
+              <a
+                class="waves-effect waves-light btn purple darken-2"
+                href="/auth/google"
+                >Login</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="waves-effect waves-light btn blue lighten-2"
+                href="/signup"
+                >Sign Up</a
+              >
+            </li>
+            <% }else{ %>
+            <li class="welcome">
+              <a href="/user/<%= user._id%>"
+                >Welcome back, <%= user.firstName %></a
+              >
+            </li>
+            <li class="">
+              <a class="" href="/api/dreams/dreamForm">Add Dream</a>
+            </li>
+            <li class="Dashboard">
+              <a class="" href="/api/dreams">Journal</a>
+            </li>
+            <li class="">
+              <a href="/auth/logout">Log Out</a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </nav>
     </div>
 
     <ul class="sidenav grey darken-4" id="mobile-links">
-        <% if(!user){%>
-            <li><a class="" href="/auth/google ">Log In</a></li>
-            <li><a href="/signup">Sign Up</a></li>
-            <%  }else{ %>
-                <li class="welcome">Welcome back,
-                    <%= user.firstName %>
-                </li>
-                <li><a href="/api/dreams/dreamLand">DreamLand</a></li>
-                <li><a href="/api/dreams ">Dashboard</a></li>
-                <li><a href="/api/dreams/dreamForm ">Add a Dream</a></li>
-                <li><a href="/auth/logout">Log Out</a></li>
-                <%  } %>
+      <% if(!user){%>
+      <li><a class="" href="/auth/google ">Log In</a></li>
+      <li><a href="/signup">Sign Up</a></li>
+      <% }else{ %>
+      <li class="welcome">Welcome back, <%= user.firstName %></li>
+      <li><a href="/api/dreams/dreamLand">DreamLand</a></li>
+      <li><a href="/api/dreams ">Dashboard</a></li>
+      <li><a href="/api/dreams/dreamForm ">Add a Dream</a></li>
+      <li><a href="/auth/logout">Log Out</a></li>
+      <% } %>
     </ul>
+  </body>
+</html>
