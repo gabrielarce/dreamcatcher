@@ -1,13 +1,13 @@
 <%- include("partials/header.ejs") %>
 <div class="dreams-bg">
-  <div class="row dashboard">
-    <div class="heading">
+  <div class="row">
+    <div class="heading dashboard animate__animated animate__fadeInDown">
       <h2>Dashboard</h2>
     </div>
     <% if(dreams.length < 1){ %>
     <p>You have not entered any dreams.</p>
     <% } else{ %>
-    <div class="col l6">
+    <div class="col l6 dashboard animate__animated animate__fadeInLeft">
       <h4>Dream Journal</h4>
       <table>
         <thead>
@@ -61,47 +61,53 @@
         <% } %>
       </ul>
       <!-- here -->
-      <div class="fixed-action-btn">
-        <a
-          href="/api/dreams/dreamForm"
-          class="btn-floating btn-large pink pulse"
-        >
-          <i class="large material-icons">add</i>
-        </a>
-      </div>
     </div>
-    <!-- Dashboard Card  -->
-    <div class="col s12 m6 xl3">
-      <div class="card">
-        <div class="card-content cyan white-text">
-          <p class="card-stats-title">
-            <i class="material-icons">person_outline</i> New Clients
-          </p>
-          <h4 class="card-stats-number white-text">566</h4>
-          <p class="card-stats-compare">
-            <i class="material-icons">keyboard_arrow_up</i> 15%
-            <span class="cyan text text-lighten-5">from yesterday</span>
-          </p>
+    <div class="col l6 animate__animated animate__fadeInRight">
+      <!-- Dashboard Card  -->
+      <div class="col s12 m6 xl6">
+        <div class="card">
+          <div class="card-content cyan white-text">
+            <p class="card-stats-title">
+              <i class="material-icons">sentiment_very_satisfied</i> Total
+              number of amazing dreams
+            </p>
+            <h4 class="card-stats-number white-text">
+              <%= data.filter(e => e.rating == "amazing").length %>
+            </h4>
+            <p class="card-stats-compare">
+              <i class="material-icons">keyboard_arrow_up</i> 15%
+              <span class="cyan text text-lighten-5">from last month</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Dashboard Card  -->
+      <div class="col s12 m6 xl6">
+        <div class="card">
+          <div class="card-content red accent-two white-text">
+            <p class="card-stats-title">
+              <i class="material-icons">sentiment_very_dissatisfied</i> Total
+              number of nightmares
+            </p>
+            <h4 class="card-stats-number white-text">
+              <%= data.filter(e => e.rating == "nightmare").length %>
+            </h4>
+            <p class="card-stats-compare">
+              <i class="material-icons">keyboard_arrow_down</i> 34%
+              <span class="red accent-two text text-lighten-5"
+                >from last month</span
+              >
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Dashboard Card  -->
-    <div class="col s12 m6 xl3">
-      <div class="card">
-        <div class="card-content red accent-two white-text">
-          <p class="card-stats-title">
-            <i class="material-icons">person_outline</i> New Clients
-          </p>
-          <h4 class="card-stats-number white-text">566</h4>
-          <p class="card-stats-compare">
-            <i class="material-icons">keyboard_arrow_up</i> 15%
-            <span class="red accent-two text text-lighten-5"
-              >from yesterday</span
-            >
-          </p>
-        </div>
-      </div>
-    </div>
+  </div>
+  <!-- Floating button for add dream form   -->
+  <div class="fixed-action-btn">
+    <a href="/api/dreams/dreamForm" class="btn-floating btn-large pink pulse">
+      <i class="large material-icons">add</i>
+    </a>
   </div>
 </div>
 <%- include("partials/footer.ejs") %>

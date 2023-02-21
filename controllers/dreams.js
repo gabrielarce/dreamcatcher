@@ -5,6 +5,7 @@ const Comment = require("../models/Comment");
 module.exports = {
   getDreams: async (req, res) => {
     try {
+      const allDreams = await Dream.find({ user: req.user.id });
       const totalRecords = await Dream.find({ user: req.user.id })
         .countDocuments()
         .exec();
@@ -17,7 +18,9 @@ module.exports = {
         .skip(skip)
         .limit(perPage)
         .exec((err, records) => {
+          console.log(allDreams);
           res.render("dashboard", {
+            data: allDreams,
             dreams: records,
             currentPage: page,
             totalPages: totalPages,
