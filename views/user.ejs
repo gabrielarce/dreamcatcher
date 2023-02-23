@@ -1,27 +1,45 @@
 <%- include("partials/header.ejs") %>
-<div class="row">
-  <div class="col l12 m12 s12">
+<!-- profile-page-header -->
+<div id="profile-page-header" class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="" alt="user background" />
+  </div>
+  <figure class="card-profile-image">
+    <img
+      src="<%= user.image%>"
+      alt="profile image"
+      class="circle z-depth-2 responsive-img activator"
+    />
+  </figure>
+  <div class="card-content">
     <div class="row">
-      <div class="col s12">
-        <div class="card">
-          <div class="card-image">
-            <img src="<%= user.image%> " alt="" />
-          </div>
-          <div class="card-content">
-            <div class="row">
-              <div class="col s4 profile-pic">
-                <img
-                  class="circle responsive-img"
-                  src="https://lh3.googleusercontent.com/-W2XryVdi-lA/U6tSAh3SsbI/AAAAAAAAFGY/ZHJiUEcR_Zs/w480-h480/avatar%2Bmaterial%2Bdesign.png"
-                  alt=""
-                />
-              </div>
-            </div>
-            <span class="card-title black-text"><%= user.displayName%></span>
-          </div>
-        </div>
+      <div class="col s3 offset-s2">
+        <h4 class="card-title grey-text text-darken-4">
+          <%= user.displayName%>
+        </h4>
+        <p class="medium-small grey-text">Dreamer</p>
+      </div>
+      <div class="col s2 center-align">
+        <h4 class="card-title grey-text text-darken-4">10+</h4>
+        <p class="medium-small grey-text">Total dreams caught</p>
+      </div>
+      <div class="col s2 center-align">
+        <h4 class="card-title grey-text text-darken-4">6</h4>
+        <p class="medium-small grey-text">Completed Projects</p>
+      </div>
+      <div class="col s2 center-align">
+        <h4 class="card-title grey-text text-darken-4">$ 1,253,000</h4>
+        <p class="medium-small grey-text">Busness Profit</p>
+      </div>
+      <div class="col s1 right-align">
+        <a
+          class="btn-floating activator waves-effect waves-light darken-2 right"
+        >
+          <i class="material-icons">edit</i>
+        </a>
       </div>
     </div>
   </div>
 </div>
-<%- include("partials/footer.ejs") %>
+<!--/ profile-page-header -->
+<%- include("partials/footer.ejs")
