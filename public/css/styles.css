@@ -1,305 +1,261 @@
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Libre+Baskerville&family=Poppins:wght@300;400&display=swap');
-     ::-webkit-scrollbar {
-        display: none;
-    }
-    
-    html {
-        position: relative;
-        min-height: 100vh;
-    }
-    
-    body {
-        background: #121212;
-        color: whitesmoke;
-    }
-    /* Header Section */
-    
-    nav {
-        background-color: rgb(38 13 44);
-    }
-    
-    .brand-logo {
-        font-family: 'Libre Baskerville', serif;
-    }
-    
-    .rounded {
-        border-radius: 40px;
-    }
-    
-    .welcome {
-        padding-right: 10px;
-    }
-    
-    .google {
-        font-family: 'PT Sans', sans-serif;
-    }
-    
-    #note-textarea {
-        height: 240px;
-        color: #039be5
-    }
-    
-    .back-button {
-        font-size: 2.5rem;
-    }
-    
-    video {
-        object-fit: cover;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-    }
-    
-    .dreams-bg {
-        background-image: url("/images/gradient1.jpg");
-        background-position: center;
-        background-size: cover;
-        width: 100vw;
-        /* height: 100vh; */
-        padding: 2% 1%;
-    }
-    
-    label {
-        font-size: 1.5rem;
-    }
-    
-    .dreamform {
-        background-color: rgba(30, 10, 35, 0.55);
-        padding-top: 5%;
-        border-radius: 10px;
-        margin: 0 5%;
-        padding: 5% 0 3% 0;
-    }
-    
-    .page-footer {
-        background-color: rgba(23, 20, 24, 0.912);
-        bottom: 0;
-        width: 100%;
-    }
-    
-    .row .fulldream {
-        padding: 3% 10%;
-    }
-    
-    .fulldream img {
-        max-width: 100%;
-    }
-    
-    .fulldream p {
-        font-size: 1.55rem;
-    }
-    
-    .dreamform .heading {
-        padding: 0 .75rem;
-        color: whitesmoke;
-        margin: 1rem 0;
-    }
-    
-    .heading {
-        text-align: center;
-    }
-    
-    .col .card {
-        background-color: #121212;
-    }
-    
-    .highlight:hover {
-        outline: none;
-        border-color: #00a2ff;
-        box-shadow: 0 0 10px #00eeff;
-    }
-    
-    .heading p {
-        font-size: 2rem;
-        margin: 0;
-    }
-    
-    .sidenav li a {
-        color: whitesmoke
-    }
-    
-    section h4 {
-        padding: 10% 0 2% 0
-    }
-    
-    section p {
-        font-size: 1.6rem;
-    }
-    
-    section h4 {
-        font-size: 3.6rem
-    }
-    
-    .delete-edit {
-        color: rgb(74, 13, 74)
-    }
-    
-    .datepicker-calendar-container {
-        background-color: #121212;
-    }
-    
-    .datepicker-buttons {
-        color: whitesmoke;
-    }
-    
-    input,
-    select,
-    textarea {
-        color: white
-    }
-    
-    .modal {
-        background-color: #121212;
-    }
-    
-    .quote-author {
-        font-size: 1.3rem;
-    }
-    
-    .lucid-label {
-        margin-bottom: 20px;
-    }
-    
-    .wombo {
-        font-size: .9rem;
-    }
-    
-    .container .about-header {
-        margin: 0 0 2% 0;
-    }
-    
-    .about-img {
-        width: 100%;
-        height: 100%;
-        border-radius: 20px;
-    }
-    /* Dashboard Button */
-    
-    li .bn31 {
-        background-image: linear-gradient(to right, #05b9b9 0%, #8c7fcd 100%);
-        border-radius: 40px;
-        box-sizing: border-box;
-        color: #020c0e;
-        display: block;
-        height: 50px;
-        font-size: 1.4em;
-        padding: 4px;
-        position: relative;
-        text-decoration: none;
-        width: 7em;
-        z-index: 2;
-    }
-    
-    .bn31:hover {
-        color: #fff;
-    }
-    
-    .bn31 .bn31span {
-        align-items: center;
-        border-radius: 40px;
-        display: flex;
-        justify-content: center;
-        height: 100%;
-        transition: background 0.5s ease;
-        width: 100%;
-    }
-    
-    .bn31:hover .bn31span {
-        background: transparent;
-    }
-    
-    .dreamland-li {
-        margin: 7px;
-    }
-    
-    @media (min-width: 320px) and (max-width: 490px) {
-        section h4 {
-            font-size: 3rem;
-        }
-        .quote-author {
-            font-size: 1.8rem;
-        }
-        .container p {
-            font-size: 1.4rem;
-        }
-        .login-with-google-btn {
-            background: #121212;
-        }
-    }
-    /* color classes */
-    
-    .happy-blue {
-        color: #00beff;
-    }
-    
-    .nice-green {
-        color: green
-    }
-    
-    .neutral-yellow {
-        color: rgb(126, 157, 62);
-    }
-    
-    .stress-orange {
-        color: orange;
-    }
-    
-    .scarry-red {
-        color: red;
-    }
-    /* Button CSS */
-    /*     
-     :root {
-        --size: 100px;
-        --frames: 62;
-    } */
-    /* 
-    
-    input {
-        display: none;
-    }
-    
-    .like {
-        display: block;
-        width: var(--size);
-        height: var(--size);
-        cursor: pointer;
-        border-radius: 999px;
-        overflow: visible;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        -webkit-tap-highlight-color: transparent;
-    }
-    
-    .hearth {
-        background-image: url('https://assets.codepen.io/23500/Hashflag-AppleEvent.svg');
-        background-size: calc(var(--size) * var(--frames)) var(--size);
-        background-repeat: no-repeat;
-        background-position-x: calc(var(--size) * (var(--frames) * -1 + 2));
-        background-position-y: calc(var(--size) * 0.02);
-        width: var(--size);
-        height: var(--size);
-    }
-    
-    input:checked+.hearth {
-        animation: like 1s steps(calc(var(--frames) - 3));
-        animation-fill-mode: forwards;
-    }
-    
-    @keyframes like {
-        0% {
-            background-position-x: 0;
-        }
-        100% {
-            background-position-x: calc(var(--size) * (var(--frames) * -1 + 3));
-        }
-    }
-    
-    @media (hover: hover) {
-        .like:hover {
-            background-color: #E1255E15;
-            .hearth {
-                background-position-x: calc(var(--size) * (var(--frames) * -1 + 1));
-            }
-        }
-    } */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Libre+Baskerville&family=Poppins:wght@300;400&display=swap");
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  background: #121212;
+  color: whitesmoke;
+}
+
+/* Header Section */
+
+nav {
+  background-color: rgb(38 13 44);
+}
+
+.brand-logo {
+  font-family: "Libre Baskerville", serif;
+}
+
+.rounded {
+  border-radius: 40px;
+}
+
+.welcome {
+  padding-right: 10px;
+}
+
+.google {
+  font-family: "PT Sans", sans-serif;
+}
+
+#note-textarea {
+  height: 240px;
+  color: #039be5;
+}
+
+.back-button {
+  font-size: 2.5rem;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.dreams-bg {
+  background-image: url("/images/gradient1.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  /* height: 100vh; */
+  padding: 2% 1%;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+.dreamform {
+  background-color: rgba(30, 10, 35, 0.55);
+  padding-top: 5%;
+  border-radius: 10px;
+  margin: 0 5%;
+  padding: 5% 0 3% 0;
+}
+
+.page-footer {
+  background-color: rgba(23, 20, 24, 0.912);
+  bottom: 0;
+  width: 100%;
+}
+
+.row .fulldream {
+  padding: 3% 10%;
+}
+
+.fulldream img {
+  max-width: 100%;
+}
+
+.fulldream p {
+  font-size: 1.55rem;
+}
+
+.dreamform .heading {
+  padding: 0 0.75rem;
+  color: whitesmoke;
+  margin: 1rem 0;
+}
+
+.heading {
+  text-align: center;
+}
+
+.col .card {
+  background-color: #121212;
+}
+
+.highlight:hover {
+  outline: none;
+  border-color: #00a2ff;
+  box-shadow: 0 0 10px #00eeff;
+}
+
+.heading p {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.sidenav li a {
+  color: whitesmoke;
+}
+
+section h4 {
+  padding: 10% 0 2% 0;
+}
+
+section p {
+  font-size: 1.6rem;
+}
+
+section h4 {
+  font-size: 3.6rem;
+}
+
+.delete-edit {
+  color: rgb(74, 13, 74);
+}
+
+.datepicker-calendar-container {
+  background-color: #121212;
+}
+
+.datepicker-buttons {
+  color: whitesmoke;
+}
+
+input,
+select,
+textarea {
+  color: white;
+}
+
+.modal {
+  background-color: #121212;
+}
+
+.quote-author {
+  font-size: 1.3rem;
+}
+
+.lucid-label {
+  margin-bottom: 20px;
+}
+
+.container .about-header {
+  margin: 0 0 2% 0;
+}
+
+.about-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+/* Dashboard Button */
+
+li .bn31 {
+  background-image: linear-gradient(to right, #05b9b9 0%, #8c7fcd 100%);
+  border-radius: 40px;
+  box-sizing: border-box;
+  color: #020c0e;
+  display: block;
+  height: 50px;
+  font-size: 1.4em;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  width: 7em;
+  z-index: 2;
+}
+
+.bn31:hover {
+  color: #fff;
+}
+
+.bn31 .bn31span {
+  align-items: center;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+}
+
+.bn31:hover .bn31span {
+  background: transparent;
+}
+
+.dreamland-li {
+  margin: 7px;
+}
+
+/* Full Dream Start*/
+
+.card.large {
+  height: fit-content;
+}
+
+.card.large .card-action {
+  position: unset;
+}
+
+/* Full Dream End*/
+
+@media (min-width: 320px) and (max-width: 490px) {
+  section h4 {
+    font-size: 3rem;
+  }
+  .quote-author {
+    font-size: 1.8rem;
+  }
+  .container p {
+    font-size: 1.4rem;
+  }
+  .login-with-google-btn {
+    background: #121212;
+  }
+}
+
+/* color classes */
+
+.happy-blue {
+  color: #00beff;
+}
+
+.nice-green {
+  color: green;
+}
+
+.neutral-yellow {
+  color: rgb(126, 157, 62);
+}
+
+.stress-orange {
+  color: orange;
+}
+
+.scarry-red {
+  color: red;
+}

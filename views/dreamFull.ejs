@@ -1,81 +1,90 @@
 <%- include("partials/header.ejs") %>
 
-    <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i></a>
-    <div class="row">
-        <div class="col s12 m7 l12 fulldream">
-            <div class="card large ">
-                <div class="card-image">
-                    <img src="<%= dream.image %>">
-                    <span class="card-title"><%= dream.date %></span>
+<a href="/api/dreams" class="back-button"
+  ><i class="fa-solid fa-arrow-left"></i
+></a>
+<div class="row">
+  <div class="col s12 m7 l12 fulldream">
+    <div class="card large">
+      <div class="card-image">
+        <img src="<%= dream.image %>" />
+        <span class="card-title"><%= dream.date %></span>
+      </div>
+      <div class="card-content">
+        <h1 class="card-title"><%= dream.title %></h1>
+        <pre style="white-space: pre-wrap"><%= dream.story %></pre>
+      </div>
+      <div class="card-action">
+        <% if(user){ %> <% if(user._id.equals( dream.user)){ %>
+        <!-- Edit and Delete Buttons with Modal-Confirmation -->
+        <div class="delete-edit">
+          <button class="btn red darken-3">
+            <a class="modal-trigger delete-edit" href="#modal1">
+              <i class="material-icons">delete </i></a
+            >
+          </button>
+          <button class="btn orange lighten-1">
+            <a class="delete-edit" href="/api/dreams/edit/<%= dream._id %>"
+              ><i class="material-icons">edit </i></a
+            >
+          </button>
 
-                </div>
-                <div class="card-content ">
-                    <h1 class="card-title">
-                        <%= dream.title %>
-                    </h1>
-                    <p>
-                        <%= dream.story %>
-                    </p>
-                </div>
-                <div class="card-action ">
-                    <% if(user){ %>
-                        <% if(user._id.equals( dream.user)){ %>
-                            <!-- Edit and Delete Buttons with Modal-Confirmation -->
-                            <div class="delete-edit">
-                                <button class="btn red darken-3 "><a class="modal-trigger delete-edit" href="#modal1"> <i class="material-icons">delete
-                    </i></a></button>
-                                <button class="btn orange lighten-1 "><a class="delete-edit" href="/api/dreams/edit/<%= dream._id %>"><i class="material-icons">edit
-                    </i></a></button>
-
-                                <!-- Modal Structure -->
-                                <div id="modal1" class="modal modal-fixed-footer">
-                                    <div class="modal-content">
-                                        <h4>Are you sure you want to delete this dream?</h4>
-                                        <p>Once you delete a dream, you can't get it back.</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                                        <form class="right" method="POST" action="/api/dreams/delete/<%= dream._id %>?_method=DELETE">
-                                            <button class="modal-close waves-effect waves-green btn-flat">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <% } %>
-                                <% } %>
-                </div>
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+              <h4>Are you sure you want to delete this dream?</h4>
+              <p>Once you delete a dream, you can't get it back.</p>
             </div>
-            <div class="col s12 m7 l12">
-                <h5>Comments</h5>
-                <ul class="row">
-                    <% for(var i=0; i< comments.length; i++) {%>
-                        <li class="">
-                            <%= comments[i].comment%>
-                                <% if(user){ %>
-                                    <%if(comments[i].user == user.id){ %>
-                                        <form action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE" method="POST" class="col-3">
-                                            <button class="fa fa-trash red darken-3" type="submit"></button>
-                                        </form>
-                                        <%}%>
-                                            <%}%>
-                        </li>
-                        <% } %>
-
-                </ul>
-                <% if(user){%>
-                    <h5>Add a comment</h5>
-                    <form action="/comment/createComment/<%= dream._id%>" method="POST">
-                        <div class="mb-3">
-                            <label for="Comment" class="form-label">Comment</label>
-                            <input type="text" class="form-control" id="comment" name="comment">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                    <% } %>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+                >Cancel</a
+              >
+              <form
+                class="right"
+                method="POST"
+                action="/api/dreams/delete/<%= dream._id %>?_method=DELETE"
+              >
+                <button class="modal-close waves-effect waves-green btn-flat">
+                  Delete
+                </button>
+              </form>
             </div>
+          </div>
         </div>
-    </div>
 
-    <%- include("partials/footer.ejs") %>
+        <% } %> <% } %>
+      </div>
+    </div>
+    <div class="col s12 m7 l12">
+      <h5>Comment Section</h5>
+      <ul class="row">
+        <% for(var i=0; i< comments.length; i++) {%>
+        <li class="">
+          <%= comments[i].comment%> <% if(user){ %> <%if(comments[i].user ==
+          user.id){ %>
+          <form
+            action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE"
+            method="POST"
+            class="col-3"
+          >
+            <button class="fa fa-trash red darken-3" type="submit"></button>
+          </form>
+          <%}%> <%}%>
+        </li>
+        <% } %>
+      </ul>
+      <% if(user){%>
+      <form action="/comment/createComment/<%= dream._id%>" method="POST">
+        <div class="mb-3">
+          <label for="Comment" class="form-label">Add a Comment</label>
+          <input type="text" class="form-control" id="comment" name="comment" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
