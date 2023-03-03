@@ -65,13 +65,7 @@
                 >Login</a
               >
             </li>
-            <li class="">
-              <a
-                class="waves-effect waves-light btn blue lighten-2"
-                href="/signup"
-                >Sign Up</a
-              >
-            </li>
+
             <% }else{ %>
             <li class="welcome">
               <a href="/user/<%= user._id%>"
@@ -96,7 +90,6 @@
     <ul class="sidenav grey darken-4" id="mobile-links">
       <% if(!user){%>
       <li><a class="" href="/auth/google ">Log In</a></li>
-      <li><a href="/signup">Sign Up</a></li>
       <% }else{ %>
       <li class="welcome">Welcome back, <%= user.firstName %></li>
       <li><a href="/api/dreams/dreamLand">DreamLand</a></li>
