@@ -1,14 +1,16 @@
 <%- include("partials/header.ejs") %>
 
-<a href="/api/dreams" class="back-button"
-  ><i class="fa-solid fa-arrow-left"></i
+    <a href="/api/dreams" class="back-button"><i class="fa-solid fa-arrow-left"></i
 ></a>
-<div class="row">
-  <div class="col s12 m7 l12 fulldream">
-    <div class="card large">
-      <div class="card-image">
-        <img src="<%= dream.image %>" />
-        <span class="card-title"><%= dream.date %></span>
+    <div class="row">
+        <div class="col s12 m7 l12 fulldream">
+            <div class="card large">
+                <div class="card-image">
+                    <img src="<%= dream.image %>" />
+                    <span class="card-title"><%= new Intl.DateTimeFormat('en-US', { weekday: 'short', month:
+          'short', day: 'numeric', year: 'numeric', }).format(dream.date);
+          %></span
+        >
       </div>
       <div class="card-content">
         <h1 class="card-title"><%= dream.title %></h1>
